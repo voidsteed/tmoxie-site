@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Support and troubleshooting information for the tmoxie iOS app.">
   <meta name="theme-color" content="#090b0e">
-  <title>Support — tmoxie</title>
+  <title>Support | tmoxie</title>
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -23,50 +23,61 @@
   <main class="legal">
     <p class="eyebrow">Help</p>
     <h1>tmoxie Support</h1>
-    <p class="lede" style="margin-left:0; text-align:left;">Trouble connecting, restoring Premium, or getting a session to render correctly? We’ll help you narrow it down.</p>
+    <p class="lede support-lede">Trouble connecting, restoring Premium, or getting a session to render correctly? We’ll help you narrow it down.</p>
 
     <div class="contact-box">
       <h2>Contact support</h2>
-      <p>Email the tmoxie support inbox. Include the app version and build, iOS version, and a short description of what happened.</p>
+      <p>Email the tmoxie support inbox. There is no public GitHub issue tracker for the app.</p>
       <a class="email-button" href="mailto:tmoxie.support@gmail.com?subject=tmoxie%20Support">Email tmoxie.support@gmail.com</a>
     </div>
 
     <section>
-      <h2>Before you email</h2>
-      <ol>
-        <li>Confirm the same hostname, port, username, and credentials work from another SSH client.</li>
-        <li>Check whether the network, VPN, firewall, or server allows SSH from your iPhone.</li>
-        <li>For tmux sessions, confirm <code>tmux</code> is installed and runs for the same remote user.</li>
-        <li>Retry after bringing tmoxie to the foreground. If the display is stale, minimize the session and reopen its window.</li>
-        <li>For a Premium purchase, use <strong>Restore Purchases</strong> while signed into the Apple Account that bought it.</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>Sharing diagnostics safely</h2>
-      <p>tmoxie’s diagnostic logs stay on your device unless you explicitly share them. If support asks for a log, use the app’s share action and inspect the file before sending it.</p>
+      <h2>Before contacting support</h2>
+      <p>Please include:</p>
       <ul>
-        <li>Remove hostnames, IP addresses, usernames, remote paths, terminal output, and anything else you consider sensitive.</li>
-        <li>Never send a password, recovery code, private key, or other secret.</li>
-        <li>Describe the approximate time the problem occurred so the relevant entries are easier to find.</li>
-      </ul>
-      <p>Raw terminal byte capture is a separate, opt-in diagnostic feature. Leave it off unless it is needed to reproduce a rendering problem, and treat the resulting file as sensitive terminal data.</p>
-    </section>
-
-    <section>
-      <h2>Useful details to include</h2>
-      <ul>
-        <li>tmoxie version and build from Settings → About;</li>
+        <li>tmoxie version and build from Settings;</li>
         <li>iPhone model and iOS version;</li>
-        <li>whether the connection is plain SSH or tmux;</li>
-        <li>the exact error shown, with sensitive server details removed; and</li>
-        <li>steps that reproduce the problem.</li>
+        <li>what you expected, what happened, and exact reproduction steps; and</li>
+        <li>a screenshot if it is safe to share.</li>
+      </ul>
+      <p>Never send an SSH password, private key, recovery code, or access token. Diagnostic logs can include hostnames, usernames, session names, paths, and error text. If raw byte recording was enabled, it can include terminal content. Review and redact files before sharing.</p>
+    </section>
+
+    <section>
+      <h2>Requirements</h2>
+      <ul>
+        <li>iPhone with iOS 17 or later;</li>
+        <li>a reachable SSH server and username/password login (SSH key authentication is not included in the current version);</li>
+        <li>tmux installed on the host for session, window, pane, and reconnect features. Hosts without tmux can use the basic plain-SSH fallback; and</li>
+        <li>Local Network permission when connecting over LAN or VPN.</li>
       </ul>
     </section>
 
     <section>
-      <h2>Privacy and legal</h2>
-      <p>Read the <a href="../privacy/">Privacy Policy</a> to understand local data and direct SSH connections, or review the <a href="../terms/">Terms of Use</a>.</p>
+      <h2>Common fixes</h2>
+      <h3>Connection fails</h3>
+      <p>Confirm the hostname or IP, port, VPN or Tailscale connectivity, username, password, and that <code>sshd</code> is running. Try the same connection from another SSH client.</p>
+      <h3>Host key changed</h3>
+      <p>Stop and verify the new fingerprint with the host administrator. Delete the saved trusted key only after confirming the server was legitimately rebuilt or rotated.</p>
+      <h3>Sessions are empty</h3>
+      <p>Run <code>tmux list-sessions</code> on the host, return to Hosts, reconnect, and use pull-to-refresh. tmux sessions live on the remote host, not in tmoxie.</p>
+      <h3>App returned from background</h3>
+      <p>iOS may suspend the SSH connection. tmoxie reconnects after the app becomes active; keeping work inside tmux lets remote processes continue while disconnected.</p>
+      <h3>Dictation unavailable</h3>
+      <p>Enable Microphone and Speech Recognition for tmoxie in iOS Settings. Dictation works only when on-device speech recognition is supported.</p>
+      <h3>Attachment missing</h3>
+      <p>Selected photos and files are uploaded to <code>~/.tmoxie-uploads</code> on the remote host, then their path is inserted into the active pane or composer. Check remote permissions and free disk space. Cleanup runs only on later uploads, so remove old files manually when needed.</p>
+      <h3>Web Preview fails</h3>
+      <p>Web Preview supports HTTP services bound to the remote host’s loopback interface. Confirm the service is listening on <code>127.0.0.1:&lt;port&gt;</code>. HTTPS preview is not supported in the current version.</p>
+      <h3>Purchase not restored</h3>
+      <p>Open Settings &gt; Plan, choose the Premium options, and tap Restore Purchases while signed into the Apple Account that purchased Premium. Apple handles billing and refund requests.</p>
+    </section>
+
+    <section>
+      <h2>Diagnostics and deletion</h2>
+      <p>Settings &gt; Diagnostics lets you export or clear the local debug log and opt in to a capped raw terminal-byte recording for one launch. Sharing is always an explicit iOS share action.</p>
+      <p>Delete a host in tmoxie before uninstalling the app to remove its Keychain password through the app. Delete remote uploads separately from <code>~/.tmoxie-uploads</code> on the host.</p>
+      <p>Read the <a href="../privacy/">Privacy Policy</a> or <a href="../terms/">Terms of Use</a>.</p>
     </section>
   </main>
 
