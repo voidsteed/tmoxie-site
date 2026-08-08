@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy Policy for the tmoxie iOS app.">
+  <meta name="theme-color" content="#090b0e">
+  <title>Privacy Policy — tmoxie</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">&gt;_</span>tmoxie</a>
+      <div class="nav-links">
+        <a href="../privacy/" aria-current="page">Privacy</a>
+        <a href="../terms/">Terms</a>
+        <a href="../support/">Support</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="legal">
+    <p class="eyebrow">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="effective">Effective August 8, 2026</p>
+
+    <div class="summary">
+      <p><strong>The short version:</strong> tmoxie has no developer-operated backend, account system, tracking, analytics, or advertising. Your saved SSH password and app data stay on your device. tmoxie sends terminal and file traffic only to SSH hosts you choose.</p>
+    </div>
+
+    <section>
+      <h2>1. Data we do not collect</h2>
+      <p>We do not receive, collect, sell, rent, or use for advertising your:</p>
+      <ul>
+        <li>SSH credentials, host details, terminal input, terminal output, files, prompts, or clipboard contents;</li>
+        <li>usage analytics, advertising identifiers, location, contacts, browsing history, or device fingerprints; or</li>
+        <li>diagnostic logs or raw terminal recordings automatically.</li>
+      </ul>
+      <p>tmoxie does not require a tmoxie account and does not operate a cloud service that receives your sessions.</p>
+    </section>
+
+    <section>
+      <h2>2. Data stored on your device</h2>
+      <p>tmoxie stores the information needed to provide its features locally:</p>
+      <ul>
+        <li><strong>Saved SSH passwords</strong> are stored in the iOS Keychain.</li>
+        <li><strong>Saved host metadata and known-host fingerprints</strong> are stored locally so tmoxie can reconnect and warn about unexpected host-key changes.</li>
+        <li><strong>Settings and remembered state</strong>—including appearance, keyboard shortcuts, remembered Web Preview URLs, local feature-use counters, trial and entitlement state, and session preferences—are stored locally.</li>
+        <li><strong>Agent Inbox items</strong> are kept locally in a bounded list of up to 200 recent items.</li>
+        <li><strong>Diagnostic logs</strong> are written to a bounded local log to help troubleshoot the app. They remain on your device unless you deliberately use the share action. You can clear them in the app.</li>
+        <li><strong>Raw terminal byte recordings</strong> are off by default. If you explicitly enable this diagnostic option, recordings remain local unless you deliberately share them.</li>
+      </ul>
+      <p>You can remove saved hosts and clear logs in the app. Deleting tmoxie removes its app-container data, subject to any device backups you control; iOS Keychain items can persist across app deletion and reinstallation under Apple’s Keychain behavior.</p>
+    </section>
+
+    <section>
+      <h2>3. Connections to your SSH hosts</h2>
+      <p>When you connect, tmoxie establishes an encrypted SSH connection directly to the hostname or IP address you selected. Terminal commands and output travel through that connection. Features such as file upload, image attachment, and Web Preview also use the selected SSH host; Web Preview reaches the address you enter through an SSH port forward.</p>
+      <p>The remote server is controlled by you or a third party you chose, not by tmoxie. Its administrator, software, and policies may record or process what you send. You are responsible for deciding which hosts to trust and for understanding their privacy practices.</p>
+      <p>A page opened in Web Preview can request resources from other websites or services referenced by that page. Those resource providers may receive normal web-request information under their own privacy policies. tmoxie does not proxy this information through a developer-operated service.</p>
+    </section>
+
+    <section>
+      <h2>4. Photos, files, and clipboard</h2>
+      <p>tmoxie accesses a photo, file, or clipboard item only after you choose the relevant picker or paste action. Selected content is handled on your device and, when you choose to upload or send it, is transferred through the SSH connection to your selected host. tmoxie does not send that content to us.</p>
+      <p>iOS may display its own permission or paste confirmation. You can change app permissions in iOS Settings.</p>
+    </section>
+
+    <section>
+      <h2>5. Dictation</h2>
+      <p>Dictation is initiated only when you tap the dictation control. tmoxie requests on-device speech recognition and places the resulting editable transcript into your composer. The app does not retain the microphone audio or send it to us. The transcript is sent to a remote host only when you choose to submit it through your terminal session.</p>
+    </section>
+
+    <section>
+      <h2>6. Apple services</h2>
+      <h3>Purchases</h3>
+      <p>Premium purchases and restores use Apple StoreKit. Apple processes payment and Apple Account information under Apple’s own terms and privacy policy. tmoxie receives product and transaction status needed to unlock features; we do not receive your full payment details and do not send purchase information to a developer backend.</p>
+      <h3>Notifications</h3>
+      <p>tmoxie notifications are scheduled and delivered through iOS for events detected by the app. Notification preferences remain on your device and can be changed in iOS Settings. tmoxie does not operate a push-notification server.</p>
+      <h3>Platform diagnostics</h3>
+      <p>tmoxie does not include a third-party crash-reporting or analytics SDK. Apple may process and provide platform crash or device diagnostics depending on your Apple privacy and analytics settings. That processing is governed by Apple’s policies.</p>
+      <p>Apart from Apple platform services and resources requested by a page you open in Web Preview, tmoxie’s terminal, prompt, and file transport goes only to SSH endpoints you select.</p>
+    </section>
+
+    <section>
+      <h2>7. Sharing a diagnostic log</h2>
+      <p>If you contact support and explicitly attach a diagnostic log or screenshot, we receive only what you choose to send by email or another service you select. Please inspect attachments and remove hostnames, IP addresses, usernames, terminal output, or other sensitive information before sharing. Never send passwords or private keys.</p>
+      <p>We use support messages only to respond and diagnose the reported issue, and retain them only as long as reasonably needed for support, security, and legal obligations. Your email provider and ours process email under their own policies.</p>
+    </section>
+
+    <section>
+      <h2>8. Children’s privacy</h2>
+      <p>tmoxie is a developer tool and is not directed to children under 13. Because we do not operate user accounts or automatically collect personal information, we do not knowingly collect personal information from children.</p>
+    </section>
+
+    <section>
+      <h2>9. Changes to this policy</h2>
+      <p>We may update this policy when tmoxie’s features or legal requirements change. The effective date above identifies the current version. Material changes will be reflected on this page.</p>
+    </section>
+
+    <section>
+      <h2>10. Contact</h2>
+      <p>Questions or privacy requests can be sent to <a href="mailto:tmoxie.support@gmail.com?subject=tmoxie%20Privacy">tmoxie.support@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© 2026 Yujun Liu. tmoxie.</span>
+      <div class="footer-links"><a href="../terms/">Terms</a><a href="../support/">Support</a></div>
+    </div>
+  </footer>
+</body>
+</html>

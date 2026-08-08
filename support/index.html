@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Support and troubleshooting information for the tmoxie iOS app.">
+  <meta name="theme-color" content="#090b0e">
+  <title>Support — tmoxie</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">&gt;_</span>tmoxie</a>
+      <div class="nav-links">
+        <a href="../privacy/">Privacy</a>
+        <a href="../terms/">Terms</a>
+        <a href="../support/" aria-current="page">Support</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="legal">
+    <p class="eyebrow">Help</p>
+    <h1>tmoxie Support</h1>
+    <p class="lede" style="margin-left:0; text-align:left;">Trouble connecting, restoring Premium, or getting a session to render correctly? We’ll help you narrow it down.</p>
+
+    <div class="contact-box">
+      <h2>Contact support</h2>
+      <p>Email the tmoxie support inbox. Include the app version and build, iOS version, and a short description of what happened.</p>
+      <a class="email-button" href="mailto:tmoxie.support@gmail.com?subject=tmoxie%20Support">Email tmoxie.support@gmail.com</a>
+    </div>
+
+    <section>
+      <h2>Before you email</h2>
+      <ol>
+        <li>Confirm the same hostname, port, username, and credentials work from another SSH client.</li>
+        <li>Check whether the network, VPN, firewall, or server allows SSH from your iPhone.</li>
+        <li>For tmux sessions, confirm <code>tmux</code> is installed and runs for the same remote user.</li>
+        <li>Retry after bringing tmoxie to the foreground. If the display is stale, minimize the session and reopen its window.</li>
+        <li>For a Premium purchase, use <strong>Restore Purchases</strong> while signed into the Apple Account that bought it.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Sharing diagnostics safely</h2>
+      <p>tmoxie’s diagnostic logs stay on your device unless you explicitly share them. If support asks for a log, use the app’s share action and inspect the file before sending it.</p>
+      <ul>
+        <li>Remove hostnames, IP addresses, usernames, remote paths, terminal output, and anything else you consider sensitive.</li>
+        <li>Never send a password, recovery code, private key, or other secret.</li>
+        <li>Describe the approximate time the problem occurred so the relevant entries are easier to find.</li>
+      </ul>
+      <p>Raw terminal byte capture is a separate, opt-in diagnostic feature. Leave it off unless it is needed to reproduce a rendering problem, and treat the resulting file as sensitive terminal data.</p>
+    </section>
+
+    <section>
+      <h2>Useful details to include</h2>
+      <ul>
+        <li>tmoxie version and build from Settings → About;</li>
+        <li>iPhone model and iOS version;</li>
+        <li>whether the connection is plain SSH or tmux;</li>
+        <li>the exact error shown, with sensitive server details removed; and</li>
+        <li>steps that reproduce the problem.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Privacy and legal</h2>
+      <p>Read the <a href="../privacy/">Privacy Policy</a> to understand local data and direct SSH connections, or review the <a href="../terms/">Terms of Use</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© 2026 Yujun Liu. tmoxie.</span>
+      <div class="footer-links"><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a></div>
+    </div>
+  </footer>
+</body>
+</html>
