@@ -3,17 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090b0e" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f5f7f5" media="(prefers-color-scheme: light)">
+  <base href="https://voidsteed.github.io/tmoxie-site/">
+  <meta name="theme-color" content="#1a1b26">
+  <meta name="robots" content="noindex">
   <title>Page not found | tmoxie</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <main class="hero">
-    <p class="eyebrow">404</p>
-    <h1>That page isn’t here.</h1>
-    <p class="lede"><a href="./">Return to tmoxie</a> or <a href="support/">contact support</a>.</p>
+  <main class="not-found">
+    <div class="not-found-inner shell">
+      <img class="app-icon not-found-icon" src="assets/app-icon.avif" width="84" height="84" alt="">
+      <p class="eyebrow">404</p>
+      <h1>That page is not here.</h1>
+      <p>Return to the product site, or jump straight into the documentation.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="./">Go home</a>
+        <a class="button button-secondary" href="docs/">Open docs</a>
+      </div>
+    </div>
   </main>
 </body>
 </html>

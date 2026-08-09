@@ -4,31 +4,49 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Terms of Use for the tmoxie iOS app.">
-  <meta name="theme-color" content="#090b0e" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f5f7f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1b26">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://voidsteed.github.io/tmoxie-site/terms/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="tmoxie">
+  <meta property="og:title" content="Terms of Use | tmoxie">
+  <meta property="og:description" content="Terms for responsible use, remote systems, Premium access, and availability of tmoxie.">
+  <meta property="og:url" content="https://voidsteed.github.io/tmoxie-site/terms/">
+  <meta property="og:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
+  <meta property="og:image:alt" content="tmoxie app icon beside a remote terminal session">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="tmoxie app icon beside a remote terminal session">
   <title>Terms of Use | tmoxie</title>
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/site.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">&gt;_</span>tmoxie</a>
-      <div class="nav-links">
-        <a href="../privacy/">Privacy</a>
-        <a href="../terms/" aria-current="page">Terms</a>
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="../"><img class="app-icon" src="../assets/app-icon.avif" width="38" height="38" alt=""><span>tmoxie</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-nav-toggle>
+        <span class="sr-only">Open navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+      <div class="nav-links" id="nav-links" data-nav-links>
+        <a href="../tutorials/">Tutorials</a>
+        <a href="../docs/">Docs</a>
         <a href="../support/">Support</a>
+        <a class="nav-action" href="../tutorials/#quick-start">Start tutorial</a>
       </div>
     </nav>
   </header>
 
-  <main class="legal">
+  <main class="legal" id="main">
     <p class="eyebrow">Legal</p>
     <h1>Terms of Use</h1>
     <p class="effective">Effective: August 8, 2026</p>
 
     <div class="summary">
-      <p>These Terms govern your use of tmoxie, provided by Yujun Liu. They supplement <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple’s Standard Licensed Application End User License Agreement</a>. By using tmoxie, you agree to both. If you do not agree, do not use the app.</p>
+      <p>These Terms govern your use of tmoxie, provided by the tmoxie developer. They supplement <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple’s Standard Licensed Application End User License Agreement</a>. By using tmoxie, you agree to both. If you do not agree, do not use the app.</p>
     </div>
 
     <section>
@@ -89,10 +107,12 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <span>© 2026 Yujun Liu. tmoxie.</span>
-      <div class="footer-links"><a href="../privacy/">Privacy</a><a href="../support/">Support</a></div>
+    <div class="shell footer-grid">
+      <div class="footer-brand"><a class="brand" href="../"><img class="app-icon" src="../assets/app-icon.avif" width="38" height="38" alt=""><span>tmoxie</span></a><p>Your terminal, your servers, your data.</p></div>
+      <div><h2>Learn</h2><a href="../tutorials/">Tutorials</a><a href="../docs/">Documentation</a><a href="../support/">Support</a></div>
+      <div><h2>Legal</h2><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="mailto:tmoxie.support@gmail.com">Email support</a></div>
     </div>
+    <div class="shell footer-bottom"><span>© 2026 tmoxie.</span><span>Built for iPhone and iOS.</span></div>
   </footer>
 </body>
 </html>

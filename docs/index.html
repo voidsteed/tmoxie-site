@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="tmoxie documentation for SSH hosts, tmux sessions, terminal input, agent composer, shortcut bar, uploads, Web Preview, Inbox, and troubleshooting.">
+  <meta name="theme-color" content="#1a1b26">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://voidsteed.github.io/tmoxie-site/docs/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="tmoxie">
+  <meta property="og:title" content="tmoxie Documentation">
+  <meta property="og:description" content="Reference for SSH hosts, tmux sessions, agent workflows, shortcuts, uploads, Web Preview, and privacy.">
+  <meta property="og:url" content="https://voidsteed.github.io/tmoxie-site/docs/">
+  <meta property="og:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
+  <meta property="og:image:alt" content="tmoxie app icon beside a remote terminal session">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="tmoxie app icon beside a remote terminal session">
+  <title>tmoxie Documentation</title>
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="../"><img class="app-icon" src="../assets/app-icon.avif" width="38" height="38" alt=""><span>tmoxie</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-nav-toggle>
+        <span class="sr-only">Open navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+      <div class="nav-links" id="nav-links" data-nav-links>
+        <a href="../tutorials/">Tutorials</a>
+        <a href="../docs/" aria-current="page">Docs</a>
+        <a href="../support/">Support</a>
+        <a class="nav-action" href="../tutorials/#quick-start">Start tutorial</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <header class="page-hero page-hero-docs">
+      <div class="page-hero-inner shell">
+        <div>
+          <p class="eyebrow">Documentation</p>
+          <h1>Know what tmoxie does, and where your work lives.</h1>
+          <p class="lede">A practical reference for connections, tmux navigation, agent input, previews, local data, and recovery.</p>
+        </div>
+        <div class="page-hero-mark">
+          <img class="app-icon page-hero-icon" src="../assets/app-icon.avif" width="116" height="116" alt="tmoxie app icon">
+        </div>
+      </div>
+    </header>
+
+    <div class="content-layout">
+      <aside class="doc-sidebar" aria-label="Documentation contents">
+        <strong>Reference</strong>
+        <nav aria-label="Documentation sections">
+          <a href="#requirements">Requirements</a>
+          <a href="#concepts">Core concepts</a>
+          <a href="#hosts">Hosts and security</a>
+          <a href="#sessions">Sessions and windows</a>
+          <a href="#terminal">Terminal input</a>
+          <a href="#composer">Agent composer</a>
+          <a href="#shortcuts">Shortcut bar</a>
+          <a href="#attachments">Attachments</a>
+          <a href="#preview">Web Preview</a>
+          <a href="#inbox">Agent Inbox</a>
+          <a href="#appearance">Appearance</a>
+          <a href="#data">Data and privacy</a>
+          <a href="#limits">Current limits</a>
+        </nav>
+      </aside>
+
+      <article class="article">
+        <section id="requirements">
+          <h2>Requirements</h2>
+          <ul>
+            <li>iPhone with iOS 17 or later.</li>
+            <li>A reachable SSH server with password authentication.</li>
+            <li>Local Network permission when the host is reached through a LAN or VPN.</li>
+            <li>tmux on the remote host for session cards, windows, panes, reconnect routing, and Web Preview memory.</li>
+          </ul>
+          <p>A host without tmux can use the plain SSH fallback. Public-key authentication and iPad-optimized layouts are not included in the current 1.0 scope.</p>
+        </section>
+
+        <section id="concepts">
+          <h2>Core concepts</h2>
+          <h3>Host</h3>
+          <p>A remote machine reached over SSH. A saved host contains its label, network address, port, username, and a Keychain-protected password.</p>
+          <h3>Session</h3>
+          <p>A tmux workspace that continues running on the remote host after your phone disconnects. A session can contain several windows.</p>
+          <h3>Window</h3>
+          <p>A named tmux workspace inside a session. tmoxie presents windows as tabs and remembers the visible window for each session.</p>
+          <h3>Pane</h3>
+          <p>An individual terminal inside a window. A pane can run a shell, editor, server, log stream, or terminal AI agent.</p>
+          <div class="callout"><p>tmoxie does not move your process into a cloud service. The process remains on your SSH host, inside tmux.</p></div>
+        </section>
+
+        <section id="hosts">
+          <h2>Hosts and SSH security</h2>
+          <p>Saved SSH passwords use Apple Keychain with device-only, non-synchronizing protection. Host records and trusted fingerprints are stored locally by the app.</p>
+          <h3>Host-key verification</h3>
+          <p>The first connection asks you to trust the server fingerprint. Compare it with a trusted source. If the fingerprint changes later, stop and confirm that the host was rebuilt or its key was intentionally rotated before deleting the saved trust entry.</p>
+          <h3>Connection failures</h3>
+          <ul>
+            <li>Confirm hostname or IP address, port, username, and password.</li>
+            <li>Confirm VPN, Tailscale, or local network access.</li>
+            <li>Confirm <code>sshd</code> is running and password login is allowed.</li>
+            <li>Try the same credentials with another SSH client to separate server and app issues.</li>
+          </ul>
+        </section>
+
+        <section id="sessions">
+          <h2>Sessions, windows, and panes</h2>
+          <p>The Sessions screen reads tmux state from the selected host. Pull down to request a fresh list and new card snapshots.</p>
+          <h3>Session actions</h3>
+          <ul>
+            <li>Create a new named session from the add button.</li>
+            <li>Rename a session from its actions menu.</li>
+            <li>Kill a session only when you intend to destroy all of its windows and processes.</li>
+          </ul>
+          <h3>Window navigation</h3>
+          <p>Tap a window tab to switch. Open the Jump to window sheet for a larger list. tmoxie remembers the last visible window by session and prefers that selection when you return.</p>
+          <h3>Minimize and maximize</h3>
+          <p>Minimize returns to session cards without closing the session. Maximize expands the working pane while keeping a visible way back to the full layout.</p>
+          <figure class="doc-figure">
+            <img src="../assets/screens/panes.jpg" width="660" height="1434" loading="lazy" alt="Multiple tmux panes presented in tmoxie">
+            <figcaption>Remote tmux remains the source of truth for session, window, and pane state.</figcaption>
+          </figure>
+        </section>
+
+        <section id="terminal">
+          <h2>Terminal input and scrolling</h2>
+          <p>Shell panes receive direct terminal input. Known agent panes also gain the optional local composer described below.</p>
+          <ul>
+            <li>Drag terminal content to scroll through available history.</li>
+            <li>Use the shortcut bar for keys that are awkward on the iPhone keyboard.</li>
+            <li>Hold and drag the directional control for repeated cursor or navigation input.</li>
+            <li>Use the pane refresh action after reconnect if the visible TUI needs a fresh capture.</li>
+          </ul>
+          <p>Full-screen terminal apps often use an alternate screen with their own redraw behavior. tmoxie preserves that distinction so shells keep scrollback while agent and editor TUIs can redraw their active view.</p>
+        </section>
+
+        <section id="composer">
+          <h2>Agent composer</h2>
+          <p>The composer is a local draft field for known terminal AI agents. Text does not reach the host until Send is activated.</p>
+          <ul>
+            <li>The keyboard’s Send key submits the draft.</li>
+            <li>The circular up arrow sends the same complete draft.</li>
+            <li>Hardware Return sends. Paste or dictate when a prompt needs multiple lines.</li>
+            <li>Collapse hides the editor while keeping its draft available.</li>
+            <li>Dictation updates the draft and stops rather than overwriting a manual edit.</li>
+          </ul>
+          <p>Multi-line prompts use bracketed paste only when the active terminal requested that mode. The prompt body and submit key are written in order so an agent receives one complete turn.</p>
+          <h3>Voice dictation</h3>
+          <p>Dictation requires Microphone and Speech Recognition permissions and runs only when on-device recognition is available. Audio is not saved by tmoxie.</p>
+        </section>
+
+        <section id="shortcuts">
+          <h2>Shortcut bar and pads</h2>
+          <p>Quick Bar is the one-tap row above the keyboard. Pads hold larger groups for tmux, common agents, universal terminal actions, and navigation keys.</p>
+          <h3>Customize the bar</h3>
+          <ol>
+            <li>Open Settings, scroll to Keyboard, then tap Customize bar.</li>
+            <li>Switch between Quick Bar and Pads.</li>
+            <li>Add built-ins from the searchable library or create a custom shortcut.</li>
+            <li>Tap an editable shortcut to change it, or use Reorder to move shortcuts.</li>
+            <li>Swipe to delete a shortcut. Add built-ins again from the library when needed.</li>
+          </ol>
+          <p>Pads themselves are built-in groups. Their shortcuts can be added, edited, reordered, deleted, and pinned individually to Quick Bar. The keyboard-dismiss control stays pinned at the trailing edge.</p>
+          <div class="callout"><p>Shortcut customization is part of Premium. Default keyboard controls remain available without editing the layout.</p></div>
+        </section>
+
+        <section id="attachments">
+          <h2>Photos, clipboard images, and files</h2>
+          <p>The composer attachment menu offers Photo Library, Files, and Clipboard Image. If the clipboard has no image, tmoxie keeps the action available and shows a clear message after you tap it.</p>
+          <p>tmoxie uploads the selected item to <code>~/.tmoxie-uploads</code> on the active SSH host and inserts the remote path into the draft. One selected image can be annotated before upload.</p>
+          <h3>Remote cleanup</h3>
+          <p>tmoxie does not automatically delete old remote uploads. Inspect and remove them when space matters:</p>
+          <pre><code>du -sh ~/.tmoxie-uploads
+find ~/.tmoxie-uploads -type f -mtime +7 -print
+# Review the list, then:
+find ~/.tmoxie-uploads -type f -mtime +7 -delete</code></pre>
+        </section>
+
+        <section id="preview">
+          <h2>Web Preview</h2>
+          <p>Web Preview opens a remote HTTP loopback service through the existing SSH connection. It does not expose the service publicly.</p>
+          <ul>
+            <li>Tap the globe from a tmux pane.</li>
+            <li>Enter a bare port such as <code>3000</code> or a loopback address and path.</li>
+            <li>Edit the address to change destinations, or use Reload for the current page.</li>
+            <li>Return to another tmux window to use its separately remembered address.</li>
+          </ul>
+          <p>The server must listen on the remote loopback interface. SSH port forwarding must be allowed. HTTPS preview is not supported in the current release.</p>
+          <div class="callout"><p>Web Preview uses a non-persistent WebKit data store. A page can still request external resources under that page's own behavior and policies.</p></div>
+        </section>
+
+        <section id="inbox">
+          <h2>Agent Inbox and notifications</h2>
+          <p>The Inbox collects supported terminal notifications such as an agent needing input or finishing a task. Items can route back to their host, session, window, and pane when that destination still exists.</p>
+          <h3>Set up agent hooks</h3>
+          <ol>
+            <li>Open Agent Inbox. From the empty state, choose the setup action.</li>
+            <li>Copy the installation prompt.</li>
+            <li>Paste it into the agent running on the selected host.</li>
+            <li>Review the requested shell files and hook changes, then let the agent install them.</li>
+            <li>Run the included verification notification.</li>
+          </ol>
+          <p>tmoxie also recognizes common OSC notification sequences emitted by terminal tools. Inbox items remain available in the app. Local alerts and haptics require an active trial or Premium, and they work while tmoxie is active or only recently backgrounded. They are not always-on push notifications after iOS suspends SSH.</p>
+        </section>
+
+        <section id="appearance">
+          <h2>App appearance and terminal themes</h2>
+          <p>App controls use the Graphite interface and can follow the iPhone or stay in Light or Dark mode. Terminal color profiles are separate and affect live terminal content and session previews.</p>
+          <p>Included terminal profiles are Tokyo Night, Catppuccin Mocha, Dracula, Gruvbox Dark, Nord, and Solarized Dark. Theme sources and licenses are available from Settings.</p>
+        </section>
+
+        <section id="data">
+          <h2>Data, diagnostics, and deletion</h2>
+          <p>tmoxie has no app account, advertising, or third-party analytics. SSH traffic connects directly to the host you select.</p>
+          <ul>
+            <li>Passwords are stored in Apple Keychain.</li>
+            <li>Hosts, settings, shortcuts, preview addresses, Inbox items, and diagnostics are local app data.</li>
+            <li>Raw terminal byte recording is off by default and limited to the current launch when enabled.</li>
+            <li>Logs and recordings are shared only through an explicit iOS share action.</li>
+          </ul>
+          <p>The debug log grows until you clear it from Settings, Diagnostics. Delete a saved host before uninstalling tmoxie if you want the app to remove its stored password from Keychain. Delete remote uploads separately on the SSH host. See the complete <a href="../privacy/">Privacy Policy</a>.</p>
+        </section>
+
+        <section id="limits">
+          <h2>Current limits</h2>
+          <ul>
+            <li>Password-based SSH only.</li>
+            <li>iPhone interface; iPad optimization is planned separately.</li>
+            <li>After the seven-day trial, adding a saved host or using Quick Connect requires Premium.</li>
+            <li>HTTP Web Preview only.</li>
+            <li>Background execution remains subject to iOS suspension rules.</li>
+            <li>Remote hosts, tmux, terminal agents, and web services remain third-party or user-controlled software.</li>
+          </ul>
+          <p>For problem-specific checks, read <a href="../support/">Support and troubleshooting</a>.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand"><a class="brand" href="../"><img class="app-icon" src="../assets/app-icon.avif" width="38" height="38" alt=""><span>tmoxie</span></a><p>Your terminal, your servers, your data.</p></div>
+      <div><h2>Learn</h2><a href="../tutorials/">Tutorials</a><a href="../docs/">Documentation</a><a href="../support/">Support</a></div>
+      <div><h2>Legal</h2><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="mailto:tmoxie.support@gmail.com">Email support</a></div>
+    </div>
+    <div class="shell footer-bottom"><span>© 2026 tmoxie.</span><span>Built for iPhone and iOS.</span></div>
+  </footer>
+</body>
+</html>

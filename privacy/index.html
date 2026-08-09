@@ -4,25 +4,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Privacy Policy for the tmoxie iOS app.">
-  <meta name="theme-color" content="#090b0e" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f5f7f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1b26">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://voidsteed.github.io/tmoxie-site/privacy/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="tmoxie">
+  <meta property="og:title" content="Privacy Policy | tmoxie">
+  <meta property="og:description" content="How tmoxie handles SSH credentials, terminal data, uploads, diagnostics, and Apple services.">
+  <meta property="og:url" content="https://voidsteed.github.io/tmoxie-site/privacy/">
+  <meta property="og:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
+  <meta property="og:image:alt" content="tmoxie app icon beside a remote terminal session">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="tmoxie app icon beside a remote terminal session">
   <title>Privacy Policy | tmoxie</title>
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/site.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">&gt;_</span>tmoxie</a>
-      <div class="nav-links">
-        <a href="../privacy/" aria-current="page">Privacy</a>
-        <a href="../terms/">Terms</a>
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="../"><img class="app-icon" src="../assets/app-icon.avif" width="38" height="38" alt=""><span>tmoxie</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-nav-toggle>
+        <span class="sr-only">Open navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+      <div class="nav-links" id="nav-links" data-nav-links>
+        <a href="../tutorials/">Tutorials</a>
+        <a href="../docs/">Docs</a>
         <a href="../support/">Support</a>
+        <a class="nav-action" href="../tutorials/#quick-start">Start tutorial</a>
       </div>
     </nav>
   </header>
 
-  <main class="legal">
+  <main class="legal" id="main">
     <p class="eyebrow">Legal</p>
     <h1>Privacy Policy</h1>
     <p class="effective">Effective: August 8, 2026</p>
@@ -33,7 +51,7 @@
 
     <section>
       <h2>About this policy</h2>
-      <p>tmoxie is an iOS SSH and tmux client provided by Yujun Liu. This policy covers the tmoxie app and tmoxie.app. tmoxie keeps its operational app data on your device and does not automatically upload it to us. Data can leave the device when you send it to an SSH host, share it, open Web Preview resources, or use Apple platform services and backups under your device settings.</p>
+      <p>tmoxie is an iOS SSH and tmux client provided by the tmoxie developer. This policy covers the tmoxie app and tmoxie.app. tmoxie keeps its operational app data on your device and does not automatically upload it to us. Data can leave the device when you send it to an SSH host, share it, open Web Preview resources, or use Apple platform services and backups under your device settings.</p>
     </section>
 
     <section>
@@ -45,16 +63,16 @@
         <li>trusted SSH host-key fingerprints;</li>
         <li>settings, shortcut layouts, appearance choices, local connection counters and dates, remembered Web Preview addresses, and local trial or purchase markers;</li>
         <li>Agent Inbox items, which can include an agent name, message, host, session, window and pane routing information, and timestamp; and</li>
-        <li>a bounded diagnostic log, which can contain technical events and identifiers such as SSH username, hostname or IP address, session name, remote path, and error text.</li>
+        <li>a diagnostic log, which can contain technical events and identifiers such as SSH username, hostname or IP address, session name, remote path, and error text.</li>
       </ul>
-      <p>The diagnostic log is capped and compacted on your device. Raw terminal byte recording is off by default, must be enabled for the current app launch, and stops at 4 MB. A raw recording can contain terminal input and output, including sensitive text. Neither file is sent to us automatically. You choose whether and where to share it with the iOS share sheet.</p>
+      <p>The diagnostic log remains on your device and grows until you clear it from Settings, Diagnostics. Raw terminal byte recording is off by default, must be enabled for the current app launch, and stops at 4 MB. A raw recording can contain terminal input and output, including sensitive text. Neither file is sent to us automatically. You choose whether and where to share it with the iOS share sheet.</p>
       <p>tmoxie does not provide app-level iCloud sync. Apple may include ordinary app-container data in device backups according to your Apple and device settings.</p>
     </section>
 
     <section>
       <h2>Connections and content you choose to send</h2>
       <p>tmoxie connects directly from your device to SSH hosts you specify. SSH traffic can include authentication data, terminal input and output, tmux session metadata, composer messages, clipboard text, and photos or files you select. SSH protects that traffic in transit. The destination host and software running there receive and process the content under their own configuration and policies; tmoxie does not proxy SSH traffic through a server operated by us.</p>
-      <p>When you attach a photo or file, tmoxie uploads it to <code>~/.tmoxie-uploads</code> on the selected host. Cleanup is best-effort during later uploads; files can remain until you or the host removes them.</p>
+      <p>When you attach a photo or file, tmoxie uploads it to <code>~/.tmoxie-uploads</code> on the selected host. tmoxie does not automatically delete these remote files. They remain until you or the host removes them.</p>
       <p>Web Preview tunnels a web service on the selected host through the existing SSH connection and uses a non-persistent WebKit data store. A page you open can itself request third-party resources or services. Those destinations may receive request information under their own privacy policies.</p>
     </section>
 
@@ -100,10 +118,12 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <span>© 2026 Yujun Liu. tmoxie.</span>
-      <div class="footer-links"><a href="../terms/">Terms</a><a href="../support/">Support</a></div>
+    <div class="shell footer-grid">
+      <div class="footer-brand"><a class="brand" href="../"><img class="app-icon" src="../assets/app-icon.avif" width="38" height="38" alt=""><span>tmoxie</span></a><p>Your terminal, your servers, your data.</p></div>
+      <div><h2>Learn</h2><a href="../tutorials/">Tutorials</a><a href="../docs/">Documentation</a><a href="../support/">Support</a></div>
+      <div><h2>Legal</h2><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="mailto:tmoxie.support@gmail.com">Email support</a></div>
     </div>
+    <div class="shell footer-bottom"><span>© 2026 tmoxie.</span><span>Built for iPhone and iOS.</span></div>
   </footer>
 </body>
 </html>

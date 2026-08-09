@@ -1,7 +1,10 @@
 # tmoxie site
 
-Public, dependency-free legal and support pages for the tmoxie iOS app.
+Public, dependency-free product, tutorial, documentation, legal, and support site for the tmoxie iOS app.
 
+- [Landing page](https://voidsteed.github.io/tmoxie-site/)
+- [Tutorials](https://voidsteed.github.io/tmoxie-site/tutorials/)
+- [Documentation](https://voidsteed.github.io/tmoxie-site/docs/)
 - [Privacy Policy](https://voidsteed.github.io/tmoxie-site/privacy/)
 - [Terms of Use](https://voidsteed.github.io/tmoxie-site/terms/)
 - [Support](https://voidsteed.github.io/tmoxie-site/support/)

@@ -4,32 +4,50 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Support and troubleshooting information for the tmoxie iOS app.">
-  <meta name="theme-color" content="#090b0e" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f5f7f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1b26">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://voidsteed.github.io/tmoxie-site/support/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="tmoxie">
+  <meta property="og:title" content="Support | tmoxie">
+  <meta property="og:description" content="Connection, reconnect, rendering, attachment, Web Preview, and purchase troubleshooting for tmoxie.">
+  <meta property="og:url" content="https://voidsteed.github.io/tmoxie-site/support/">
+  <meta property="og:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
+  <meta property="og:image:alt" content="tmoxie app icon beside a remote terminal session">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="tmoxie app icon beside a remote terminal session">
   <title>Support | tmoxie</title>
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/styles.css">
+  <script src="../assets/site.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">&gt;_</span>tmoxie</a>
-      <div class="nav-links">
-        <a href="../privacy/">Privacy</a>
-        <a href="../terms/">Terms</a>
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="../"><img class="app-icon" src="../assets/app-icon.avif" width="38" height="38" alt=""><span>tmoxie</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-nav-toggle>
+        <span class="sr-only">Open navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+      <div class="nav-links" id="nav-links" data-nav-links>
+        <a href="../tutorials/">Tutorials</a>
+        <a href="../docs/">Docs</a>
         <a href="../support/" aria-current="page">Support</a>
+        <a class="nav-action" href="../tutorials/#quick-start">Start tutorial</a>
       </div>
     </nav>
   </header>
 
-  <main class="legal">
+  <main class="legal" id="main">
     <p class="eyebrow">Help</p>
     <h1>tmoxie Support</h1>
     <p class="lede support-lede">Trouble connecting, restoring Premium, or getting a session to render correctly? We’ll help you narrow it down.</p>
 
     <div class="contact-box">
       <h2>Contact support</h2>
-      <p>Email the tmoxie support inbox. There is no public GitHub issue tracker for the app.</p>
+      <p>For setup help first, use the <a href="../tutorials/">tutorials</a> or <a href="../docs/">documentation</a>. Email the support inbox when the app still does not behave as expected.</p>
       <a class="email-button" href="mailto:tmoxie.support@gmail.com?subject=tmoxie%20Support">Email tmoxie.support@gmail.com</a>
     </div>
 
@@ -68,7 +86,7 @@
       <h3>Dictation unavailable</h3>
       <p>Enable Microphone and Speech Recognition for tmoxie in iOS Settings. Dictation works only when on-device speech recognition is supported.</p>
       <h3>Attachment missing</h3>
-      <p>Selected photos and files are uploaded to <code>~/.tmoxie-uploads</code> on the remote host, then their path is inserted into the active pane or composer. Check remote permissions and free disk space. Cleanup runs only on later uploads, so remove old files manually when needed.</p>
+      <p>Selected photos and files are uploaded to <code>~/.tmoxie-uploads</code> on the remote host, then their path is inserted into the active pane or composer. Check remote permissions and free disk space. tmoxie does not automatically delete old uploads, so remove them manually when needed.</p>
       <h3>Web Preview fails</h3>
       <p>Web Preview supports HTTP services bound to the remote host’s loopback interface. Confirm the service is listening on <code>127.0.0.1:&lt;port&gt;</code>. HTTPS preview is not supported in the current version.</p>
       <h3>Purchase not restored</h3>
@@ -84,10 +102,12 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <span>© 2026 Yujun Liu. tmoxie.</span>
-      <div class="footer-links"><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a></div>
+    <div class="shell footer-grid">
+      <div class="footer-brand"><a class="brand" href="../"><img class="app-icon" src="../assets/app-icon.avif" width="38" height="38" alt=""><span>tmoxie</span></a><p>Your terminal, your servers, your data.</p></div>
+      <div><h2>Learn</h2><a href="../tutorials/">Tutorials</a><a href="../docs/">Documentation</a><a href="../support/">Support</a></div>
+      <div><h2>Legal</h2><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="mailto:tmoxie.support@gmail.com">Email support</a></div>
     </div>
+    <div class="shell footer-bottom"><span>© 2026 tmoxie.</span><span>Built for iPhone and iOS.</span></div>
   </footer>
 </body>
 </html>
