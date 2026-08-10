@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Learn tmoxie from first SSH connection to tmux sessions, agent prompts, shortcut customization, image uploads, and Web Preview.">
+  <meta name="description" content="Install tmux, connect a private host with Tailscale, and learn tmoxie sessions, agent prompts, shortcuts, uploads, and Web Preview.">
   <meta name="theme-color" content="#1a1b26">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://voidsteed.github.io/tmoxie-site/tutorials/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="tmoxie">
-  <meta property="og:title" content="tmoxie Tutorials | Get started in 15 minutes">
-  <meta property="og:description" content="Connect a host, resume tmux, guide an AI agent, add shortcuts, upload images, and preview a remote web app.">
+  <meta property="og:title" content="tmoxie Tutorial | tmux, Tailscale, and mobile coding">
+  <meta property="og:description" content="Install tmux, reach a private host with Tailscale, resume sessions, guide an AI agent, and preview a remote web app.">
   <meta property="og:url" content="https://voidsteed.github.io/tmoxie-site/tutorials/">
   <meta property="og:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
   <meta property="og:image:alt" content="tmoxie app icon beside a remote terminal session">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
   <meta name="twitter:image:alt" content="tmoxie app icon beside a remote terminal session">
-  <title>tmoxie Tutorials | Get started in 15 minutes</title>
+  <title>tmoxie Tutorial | tmux, Tailscale, and Mobile Coding</title>
   <link rel="icon" href="../assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/styles.css">
@@ -61,6 +61,7 @@
         <nav aria-label="Tutorial sections">
           <a href="#quick-start">Quick start</a>
           <a href="#prepare-host">Prepare the host</a>
+          <a href="#tailscale">Connect with Tailscale</a>
           <a href="#add-host">Add a host</a>
           <a href="#resume-a-session">Resume a session</a>
           <a href="#agent-composer">Agent composer</a>
@@ -74,36 +75,142 @@
       <article class="article">
         <section id="quick-start">
           <h2>Quick start</h2>
-          <p>This path gets you from a reachable machine to a reusable mobile coding setup. You need an iPhone with iOS 17 or later and a server that accepts password-based SSH. The seven-day trial includes host setup; after it expires, adding a saved host or using Quick Connect requires Premium.</p>
+          <p>This path gets you from a reachable machine to a reusable mobile coding setup. You need an iPhone with iOS 17 or later and a computer that accepts password-based SSH. For a home or private machine, Tailscale is the recommended way to make that SSH server reachable without exposing it to the public internet.</p>
+          <div class="tutorial-card-grid audience-paths">
+            <div class="tutorial-card"><h3>New to tmux</h3><p>Install it, add the host, and let tmoxie create or attach the default session. You do not need to memorize terminal shortcuts first.</p></div>
+            <div class="tutorial-card"><h3>Already use tmux</h3><p>Connect the host and your existing sessions appear as cards. Keep using the same sessions from your desktop and iPhone.</p></div>
+          </div>
           <ul class="task-list">
-            <li>Install tmux on the remote machine.</li>
-            <li>Create a named tmux session for the project.</li>
+            <li>Install tmux on the computer you want to control.</li>
+            <li>For a private host, connect the iPhone and computer with Tailscale.</li>
+            <li>Confirm that normal password-based SSH works.</li>
             <li>Save the machine as a host in tmoxie.</li>
-            <li>Open the session card and select your working window.</li>
+            <li>Open the default session or one of your existing named sessions.</li>
             <li>Use the composer to send a prompt to the active agent.</li>
             <li>Pin the terminal keys you use most to Quick Bar.</li>
           </ul>
-          <div class="callout"><p><strong>Best habit:</strong> run long work inside tmux. SSH can reconnect, but tmux is what keeps the remote process alive while your phone sleeps or changes networks.</p></div>
+          <div class="callout"><p><strong>Best habit:</strong> run long work inside tmux. Tailscale provides a private network path, SSH carries the connection, and tmux keeps the remote process alive while your phone sleeps or changes networks.</p></div>
         </section>
 
         <section id="prepare-host">
           <h2>Prepare the remote host</h2>
-          <p>tmoxie works with a plain SSH shell, but sessions, windows, panes, previews, and reliable handoff are most useful with tmux installed.</p>
+          <p>Install tmux on the computer you connect to, not on the iPhone. tmoxie can open a plain SSH shell without it, but session cards, windows, panes, reconnect recovery, and per-window previews depend on tmux.</p>
 
-          <h3>Ubuntu or Debian</h3>
-          <pre><code>sudo apt update
-sudo apt install tmux
-tmux new -s project</code></pre>
+          <div class="install-grid">
+            <div class="install-option">
+              <h3>Ubuntu or Debian</h3>
+              <pre><code>sudo apt update
+sudo apt install tmux</code></pre>
+            </div>
+            <div class="install-option">
+              <h3>Fedora or RHEL</h3>
+              <pre><code>sudo dnf install tmux</code></pre>
+            </div>
+            <div class="install-option">
+              <h3>Arch Linux</h3>
+              <pre><code>sudo pacman -S tmux</code></pre>
+            </div>
+            <div class="install-option">
+              <h3>macOS</h3>
+              <pre><code>brew install tmux</code></pre>
+            </div>
+          </div>
 
-          <h3>macOS</h3>
-          <pre><code>brew install tmux
-tmux new -s project</code></pre>
+          <p>Confirm that the command is available and see the installed version:</p>
+          <pre><code>command -v tmux
+tmux -V</code></pre>
 
-          <p>Inside the new session, change to the project directory and launch the terminal agent or command you normally use.</p>
+          <h3>tmux in 90 seconds</h3>
+          <p>A session is a durable workspace. Each session contains windows, and each window can contain one or more terminal panes. tmoxie turns that structure into session cards, window tabs, and touch-friendly pane controls.</p>
+          <p>You do not need to learn the classic <kbd>Ctrl-b</kbd> prefix to use tmoxie. The app maps common tmux actions to native controls and its tmux keyboard pad. The commands below are useful when you also work from a regular desktop terminal.</p>
+          <dl class="command-reference">
+            <div>
+              <dt><code>tmux new -s project</code></dt>
+              <dd>Create and enter a session named <code>project</code>.</dd>
+            </div>
+            <div>
+              <dt><kbd>Ctrl-b</kbd>, then <kbd>d</kbd></dt>
+              <dd>Detach from a regular desktop tmux client without stopping its programs.</dd>
+            </div>
+            <div>
+              <dt><code>tmux ls</code></dt>
+              <dd>List the sessions currently running on the machine.</dd>
+            </div>
+            <div>
+              <dt><code>tmux attach -t project</code></dt>
+              <dd>Reopen the named session from a regular terminal.</dd>
+            </div>
+            <div>
+              <dt><code>tmux kill-session -t project</code></dt>
+              <dd>Destroy the session and its programs when the work is truly finished.</dd>
+            </div>
+          </dl>
+
+          <p>You can create a named session yourself, or simply open a tmux-capable host in tmoxie. The app can create or attach its default <code>tmoxie-home</code> session and also lists the other sessions already running on that host.</p>
+          <p>Inside a session, change to the project directory and launch the terminal agent or command you normally use:</p>
           <pre><code>cd ~/code/my-project
 # Start your preferred terminal agent here</code></pre>
 
-          <div class="callout callout-warning"><p><strong>Authentication in 1.0:</strong> tmoxie currently supports SSH passwords. Public-key authentication is planned for a later release.</p></div>
+          <h3>What keeps running?</h3>
+          <figure class="table-scroll" tabindex="0">
+            <figcaption class="sr-only">What happens to a tmux session after common events</figcaption>
+            <table class="survival-table">
+              <thead><tr><th scope="col">Event</th><th scope="col">Session remains</th><th scope="col">What to expect</th></tr></thead>
+              <tbody>
+                <tr><td>Switch apps or lock the iPhone</td><td><strong class="status-yes">Yes</strong></td><td>tmoxie reconnects when active again.</td></tr>
+                <tr><td>Wi-Fi or cellular changes</td><td><strong class="status-yes">Yes</strong></td><td>SSH reconnects, then tmoxie refreshes the tmux state.</td></tr>
+                <tr><td>Force quit tmoxie</td><td><strong class="status-yes">Yes</strong></td><td>The remote process stays inside tmux.</td></tr>
+                <tr><td>Kill the tmux session</td><td><strong class="status-no">No</strong></td><td>The programs inside that session end.</td></tr>
+                <tr><td>Restart the remote computer</td><td><strong class="status-no">Not by default</strong></td><td>Session restoration requires separate host setup.</td></tr>
+              </tbody>
+            </table>
+          </figure>
+
+          <div class="callout callout-warning"><p><strong>Current authentication:</strong> tmoxie supports SSH passwords. Public-key authentication is planned for a later release.</p></div>
+          <p>For more detail, use the official <a href="https://github.com/tmux/tmux/wiki/Installing">tmux installation guide</a> and <a href="https://github.com/tmux/tmux/wiki/Getting-Started">tmux getting started guide</a>.</p>
+        </section>
+
+        <section id="tailscale">
+          <h2>Reach a private computer with Tailscale</h2>
+          <p>Tailscale is optional, but it is the simplest recommended path to a home server, desktop, or laptop that is not publicly reachable. It creates a private network between your devices. tmoxie then makes a normal SSH connection across that network.</p>
+
+          <ol class="connection-path" aria-label="How tmoxie reaches a private tmux session">
+            <li><strong>tmoxie on iPhone</strong><span>Starts the connection</span></li>
+            <li><strong>Tailscale</strong><span>Provides the private route</span></li>
+            <li><strong>OpenSSH</strong><span>Authenticates your host login</span></li>
+            <li><strong>tmux</strong><span>Keeps sessions and agents running</span></li>
+          </ol>
+
+          <ol>
+            <li>Install <a href="https://tailscale.com/docs/install/ios">Tailscale on the iPhone</a> and <a href="https://tailscale.com/download">Tailscale on the remote computer</a>.</li>
+            <li>Sign in to the same tailnet on both devices and confirm that both appear connected.</li>
+            <li>Make sure the computer's normal OpenSSH server is running and accepts your OS username and password. Test the same login from another SSH client on the tailnet when possible.</li>
+            <li>Find the host's <a href="https://tailscale.com/docs/features/magicdns">MagicDNS name</a>, or run <code>tailscale ip -4</code> on the host to get its private Tailscale address.</li>
+            <li>In tmoxie, add that name or <code>100.x.y.z</code> address, port <code>22</code>, your OS username, and your SSH password.</li>
+          </ol>
+
+          <div class="callout callout-warning"><p><strong>Use normal SSH authentication:</strong> tmoxie does not currently authenticate through Tailscale SSH. Use Tailscale for the private network route, then connect to the computer's normal OpenSSH server with its OS username and SSH password.</p></div>
+          <p>Do not open port 22 on your home router just for tmoxie. Keep the SSH service private and connect through Tailscale or another VPN. If the host is already safely reachable, Tailscale is not required.</p>
+
+          <h3>If the private host does not connect</h3>
+          <ul>
+            <li>Open Tailscale on the iPhone first and confirm that both devices are online in the same tailnet.</li>
+            <li>Confirm that the remote computer is awake and its SSH server is listening on the expected port.</li>
+            <li>Try the raw <code>100.x.y.z</code> Tailscale address if the MagicDNS name does not resolve.</li>
+            <li>Verify the username and password with another SSH client.</li>
+            <li>Allow a little extra time for the first connection after the phone or private tunnel has been asleep.</li>
+          </ul>
+          <p>When another terminal is available, check each layer directly:</p>
+          <pre><code># On the remote computer
+tailscale status
+tailscale ip -4
+command -v tmux
+tmux -V
+tmux list-sessions
+
+# From another device in the same tailnet
+ssh username@100.x.y.z</code></pre>
+          <p>The official <a href="https://tailscale.com/docs/concepts/tailscale-ip-addresses">Tailscale IP address guide</a> explains how device addresses work.</p>
         </section>
 
         <section id="add-host">
@@ -118,7 +225,7 @@ tmux new -s project</code></pre>
             <img src="../assets/screens/hosts.jpg" width="660" height="1434" loading="lazy" alt="Saved host list in tmoxie">
             <figcaption>Use a label that tells you what the machine is for, not only where it is.</figcaption>
           </figure>
-          <p>If a hostname does not resolve, try its raw IP address. For a home machine, confirm that your VPN or private network is active before connecting.</p>
+          <p>If a hostname does not resolve, try its raw IP address. For a Tailscale host, use its <code>100.x.y.z</code> address. Confirm that the VPN or private network is active before connecting.</p>
         </section>
 
         <section id="resume-a-session">
@@ -126,14 +233,14 @@ tmux new -s project</code></pre>
           <p>After tmoxie connects, the Sessions screen shows the remote tmux sessions as cards with window and pane context.</p>
           <ol>
             <li>Tap the project session card.</li>
-            <li>Use the window tabs to move between tmux windows. Tap the current title to open <strong>Jump to window</strong> when the list is long.</li>
-            <li>Use the pane layout to select the pane you want to control.</li>
+            <li>Swipe or tap the window tabs to move between tmux windows. Use the grid button beside the tabs to open <strong>Jump to window</strong> when the list is long.</li>
+            <li>Tap a pane chip to focus it. Tap another chip to open a two-pane Glance, then tap either visible chip to return to one pane.</li>
             <li>Tap <strong>Minimize</strong> to return to session cards without closing the remote session.</li>
           </ol>
           <p>tmoxie remembers the visible window for each session. Returning to that session should bring you back to the work you last viewed.</p>
           <div class="tutorial-card-grid">
             <div class="tutorial-card"><h3>Minimize</h3><p>Returns to the live session list. Remote programs keep running.</p></div>
-            <div class="tutorial-card"><h3>Maximize</h3><p>Expands the current pane when you need a larger terminal surface.</p></div>
+            <div class="tutorial-card"><h3>Full Screen</h3><p>Choose it from the more menu to hide app chrome and give the terminal more room.</p></div>
           </div>
         </section>
 

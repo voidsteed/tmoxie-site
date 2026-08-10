@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="tmoxie documentation for SSH hosts, tmux sessions, terminal input, agent composer, shortcut bar, uploads, Web Preview, Inbox, and troubleshooting.">
+  <meta name="description" content="tmoxie documentation for SSH and Tailscale hosts, tmux sessions, terminal input, agent composer, shortcuts, uploads, and Web Preview.">
   <meta name="theme-color" content="#1a1b26">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://voidsteed.github.io/tmoxie-site/docs/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="tmoxie">
   <meta property="og:title" content="tmoxie Documentation">
-  <meta property="og:description" content="Reference for SSH hosts, tmux sessions, agent workflows, shortcuts, uploads, Web Preview, and privacy.">
+  <meta property="og:description" content="Reference for SSH and Tailscale hosts, tmux sessions, agent workflows, shortcuts, uploads, Web Preview, and privacy.">
   <meta property="og:url" content="https://voidsteed.github.io/tmoxie-site/docs/">
   <meta property="og:image" content="https://voidsteed.github.io/tmoxie-site/assets/og-image.jpg">
   <meta property="og:image:alt" content="tmoxie app icon beside a remote terminal session">
@@ -84,7 +84,7 @@
             <li>Local Network permission when the host is reached through a LAN or VPN.</li>
             <li>tmux on the remote host for session cards, windows, panes, reconnect routing, and Web Preview memory.</li>
           </ul>
-          <p>A host without tmux can use the plain SSH fallback. Public-key authentication and iPad-optimized layouts are not included in the current 1.0 scope.</p>
+          <p>For a home or private host, <a href="../tutorials/#tailscale">Tailscale or another VPN</a> is recommended. A host without tmux can use the plain SSH fallback. Public-key authentication and iPad-optimized layouts are not included in the current release.</p>
         </section>
 
         <section id="concepts">
@@ -94,7 +94,7 @@
           <h3>Session</h3>
           <p>A tmux workspace that continues running on the remote host after your phone disconnects. A session can contain several windows.</p>
           <h3>Window</h3>
-          <p>A named tmux workspace inside a session. tmoxie presents windows as tabs and remembers the visible window for each session.</p>
+          <p>A tab-like terminal group inside a session. Each window contains one or more panes. tmoxie presents windows as tabs and remembers the visible window for each session.</p>
           <h3>Pane</h3>
           <p>An individual terminal inside a window. A pane can run a shell, editor, server, log stream, or terminal AI agent.</p>
           <div class="callout"><p>tmoxie does not move your process into a cloud service. The process remains on your SSH host, inside tmux.</p></div>
@@ -105,6 +105,9 @@
           <p>Saved SSH passwords use Apple Keychain with device-only, non-synchronizing protection. Host records and trusted fingerprints are stored locally by the app.</p>
           <h3>Host-key verification</h3>
           <p>The first connection asks you to trust the server fingerprint. Compare it with a trusted source. If the fingerprint changes later, stop and confirm that the host was rebuilt or its key was intentionally rotated before deleting the saved trust entry.</p>
+          <h3>Private hosts with Tailscale</h3>
+          <p>Tailscale can provide the private network route to a home computer without opening SSH to the public internet. Install it on the iPhone and remote computer, sign in to the same tailnet, then save the host's MagicDNS name or Tailscale IP address in tmoxie.</p>
+          <p>tmoxie still connects to the computer's normal OpenSSH server. Current releases require the OS username and an SSH password. tmoxie does not currently authenticate through <a href="https://tailscale.com/docs/features/tailscale-ssh">Tailscale SSH</a>. See the <a href="../tutorials/#tailscale">step-by-step Tailscale tutorial</a>.</p>
           <h3>Connection failures</h3>
           <ul>
             <li>Confirm hostname or IP address, port, username, and password.</li>
@@ -116,7 +119,7 @@
 
         <section id="sessions">
           <h2>Sessions, windows, and panes</h2>
-          <p>The Sessions screen reads tmux state from the selected host. Pull down to request a fresh list and new card snapshots.</p>
+          <p>The Sessions screen reads tmux state from the selected host. On a tmux-capable host, tmoxie can create or attach the default <code>tmoxie-home</code> session and also discovers your other existing sessions. Pull down to request a fresh list and new card snapshots.</p>
           <h3>Session actions</h3>
           <ul>
             <li>Create a new named session from the add button.</li>
@@ -125,8 +128,8 @@
           </ul>
           <h3>Window navigation</h3>
           <p>Tap a window tab to switch. Open the Jump to window sheet for a larger list. tmoxie remembers the last visible window by session and prefers that selection when you return.</p>
-          <h3>Minimize and maximize</h3>
-          <p>Minimize returns to session cards without closing the session. Maximize expands the working pane while keeping a visible way back to the full layout.</p>
+          <h3>Minimize and Full Screen</h3>
+          <p>Minimize returns to session cards without closing the session. Full Screen is available from the more menu and hides app chrome while keeping a floating way back to the normal layout.</p>
           <figure class="doc-figure">
             <img src="../assets/screens/panes.jpg" width="660" height="1434" loading="lazy" alt="Multiple tmux panes presented in tmoxie">
             <figcaption>Remote tmux remains the source of truth for session, window, and pane state.</figcaption>
