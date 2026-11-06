@@ -5,16 +5,17 @@
 ## Product status and limits
 
 - App Store launch is in progress. This site does not provide a public App Store download link.
-- Requires iPhone with iOS 17 or later and a reachable SSH host with password authentication.
-- Shells, coding agents, tmux sessions, and Herdr TUI workspaces run on the user's remote machine, not on the iPhone or a tmoxie hosting service.
+- Requires iPhone with iOS 17 or later. Live connections require a reachable SSH host with password authentication.
+- In tmoxie 0.3.87, Try Demo on Hosts opens a working local terminal and workspace simulation without a server, account, or purchase. Example commands and prompt replies are local simulations. No SSH, tmux or Herdr service, or AI model runs in the demo.
+- For live connections, shells, coding agents, tmux sessions, and Herdr TUI workspaces run on the user's remote machine, not on the iPhone or a tmoxie hosting service.
 - Basic SSH is free. Premium has a seven-day trial with no automatic charge, followed by an optional one-time in-app purchase. Localized pricing appears before purchase.
-- Herdr integration targets compatible stable Herdr TUI 0.8 releases. The newer Herdr app built on herdr-core is a separate product.
+- tmoxie 0.3.87 supports stable Herdr TUI 0.9.5 with protocol 22 and stable 0.8.x with protocol 19 or 20. The newer Herdr app built on herdr-core is a separate product.
 - iOS may suspend SSH connections in the background. tmoxie does not provide an always-on push notification service.
 
 ## Official pages
 
 - [Product](https://tmoxie.app/): Capabilities, availability, and pricing model.
-- [SSH and tmux setup guide](https://tmoxie.app/tutorials/): Prepare a host, connect through Tailscale, resume sessions, send agent prompts, and preview remote web apps.
+- [SSH and tmux setup guide](https://tmoxie.app/tutorials/): Try the local demo, prepare a host, connect through Tailscale, set up Herdr TUI, resume sessions, send agent prompts, and preview remote web apps.
 - [Documentation](https://tmoxie.app/docs/): Requirements, SSH security, tmux, Herdr TUI, keyboard tools, agent input, local data, and current limits.
 - [Support](https://tmoxie.app/support/): Troubleshooting and support contact.
 - [Privacy policy](https://tmoxie.app/privacy/): Credentials, terminal data, uploads, Apple services, diagnostics, and deletion.

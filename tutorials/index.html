@@ -105,11 +105,13 @@
       <aside class="doc-sidebar" aria-label="Tutorial contents">
         <strong>On this page</strong>
         <nav aria-label="Tutorial sections">
+          <a href="#local-demo">Try the local demo</a>
           <a href="#quick-start">Quick start</a>
           <a href="#prepare-host">Prepare the host</a>
           <a href="#tailscale">Connect with Tailscale</a>
           <a href="#add-host">Add a host</a>
           <a href="#resume-a-session">Resume a session</a>
+          <a href="#herdr-setup">Set up Herdr TUI</a>
           <a href="#agent-composer">Agent composer</a>
           <a href="#shortcut-bar">Shortcut bar</a>
           <a href="#images-files">Images and files</a>
@@ -119,6 +121,21 @@
       </aside>
 
       <article class="article">
+        <section id="local-demo">
+          <h2>Try the local demo</h2>
+          <p>In tmoxie 0.3.87, explore the terminal and workspace controls on your iPhone without a server, account, or purchase.</p>
+          <ol>
+            <li>On <strong>Hosts</strong>, tap <strong>Try Demo</strong>. The terminal opens with a local simulation notice and a prompt.</li>
+            <li>Tap the keyboard button, type <code>help</code>, and press Return to see the available commands. Run <code>echo hello</code> to see your own text below the command.</li>
+            <li>Use <strong>Navigate</strong> to create another window or pane. Run a different command, then switch back to see the first pane's retained output.</li>
+            <li>Switch to the <strong>Herdr</strong> example to explore local sessions, workspaces, tabs, and panes.</li>
+            <li>Type a question in <strong>Ask locally</strong> and tap the up-arrow. The terminal labels the answer as a simulated local reply.</li>
+            <li>Tap <strong>Reset demo</strong> and confirm <strong>Reset</strong> to restore the examples. Tap <strong>Done</strong> to return to Hosts.</li>
+          </ol>
+          <p>You can also open the demo from <strong>Settings</strong> &gt; <strong>Help &amp; Diagnostics</strong> &gt; <strong>Terminal demo</strong>. Demo edits do not change your saved hosts.</p>
+          <p>The demo uses local example commands and simulated replies. It does not open SSH, run tmux or a Herdr service, or call an AI model. For a live connection, follow the SSH quick start below.</p>
+        </section>
+
         <section id="quick-start">
           <h2>Quick start</h2>
           <p>This path gets you from a reachable machine to a reusable mobile coding setup. You need an iPhone with iOS 17 or later and a computer that accepts password-based SSH. For a home or private machine, Tailscale is the recommended way to make that SSH server reachable without exposing it to the public internet.</p>
@@ -288,6 +305,19 @@ ssh username@100.x.y.z</code></pre>
             <div class="tutorial-card"><h3>Minimize</h3><p>Returns to the live session list. Remote programs keep running.</p></div>
             <div class="tutorial-card"><h3>Full Screen</h3><p>Choose it from the more menu to hide app chrome and give the terminal more room.</p></div>
           </div>
+        </section>
+
+        <section id="herdr-setup">
+          <h2>Set up Herdr TUI</h2>
+          <p>Open a remote Herdr TUI workspace from your iPhone. You need a reachable SSH host and an active Premium trial or the one-time Premium purchase.</p>
+          <ol>
+            <li>On your SSH host, follow the official <a href="https://herdr.dev/tui/">Herdr TUI install guide</a>. Choose a release from the <a href="../docs/#herdr">compatibility table for tmoxie 0.3.87</a>.</li>
+            <li>Connect to the host in tmoxie, then choose <strong>Herdr</strong>.</li>
+            <li>If you installed or upgraded Herdr after connecting, tap <strong>Check Again</strong>. Follow any server restart guidance shown by Herdr.</li>
+            <li>Open an existing workspace, or tap <strong>Create Workspace</strong>. If no session is running, creating a workspace starts one.</li>
+          </ol>
+          <p>The workspace opens with its tabs and panes. tmoxie does not automatically upgrade or restart Herdr. The separate Herdr desktop app does not share these TUI workspaces.</p>
+          <p>If another client controls a pane, tmoxie opens it read-only. Choose <strong>Take Control</strong> explicitly when you want to send input.</p>
         </section>
 
         <section id="agent-composer">

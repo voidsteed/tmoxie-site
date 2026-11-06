@@ -131,6 +131,7 @@
             <li>Local Network permission when the host is reached through a LAN or VPN.</li>
             <li>tmux on the remote host for session cards, windows, panes, reconnect routing, and Web Preview memory.</li>
           </ul>
+          <p>In tmoxie 0.3.87, the <a href="../tutorials/#local-demo">local demo</a> needs only the iPhone. The server requirements above apply to live connections.</p>
           <p>For a home or private host, <a href="../tutorials/#tailscale">Tailscale or another VPN</a> is recommended. A host without tmux can use the plain SSH fallback. Public-key authentication and iPad-optimized layouts are not included in the current release.</p>
         </section>
 
@@ -186,7 +187,18 @@
         <section id="herdr">
           <h2>Herdr TUI workspaces on iPhone</h2>
           <p>Herdr TUI is an optional remote workspace manager alongside tmux. Install a compatible Herdr TUI release on your SSH host first. tmoxie connects over SSH and lets you navigate its sessions, workspaces, tabs, and panes. Coding agents run inside those remote panes.</p>
-          <p>The current integration supports compatible stable Herdr TUI 0.8 releases. tmoxie checks compatibility before opening a workspace. Herdr requires an active Premium trial or the one-time Premium purchase. You can continue to use tmux when Herdr is unavailable or incompatible.</p>
+          <p>tmoxie 0.3.87 supports the following stable Herdr TUI releases. tmoxie checks the release and its matching protocol before opening a workspace.</p>
+          <figure class="table-scroll" tabindex="0">
+            <figcaption class="sr-only">Herdr TUI compatibility in tmoxie 0.3.87</figcaption>
+            <table class="survival-table">
+              <thead><tr><th scope="col">Herdr TUI release</th><th scope="col">Protocol</th></tr></thead>
+              <tbody>
+                <tr><td>Stable 0.9.5</td><td>22</td></tr>
+                <tr><td>Stable 0.8.x</td><td>19 or 20</td></tr>
+              </tbody>
+            </table>
+          </figure>
+          <p>Preview channels, other releases, and mismatched protocols are not supported. Herdr requires an active Premium trial or the one-time Premium purchase. You can continue to use tmux when Herdr is unavailable or incompatible. Follow the <a href="../tutorials/#herdr-setup">Herdr TUI setup tutorial</a> to connect.</p>
           <p>Herdr TUI and the newer Herdr app built on herdr-core are separate products. This integration is for Herdr TUI, and does not imply support for the newer app's agents or workspaces. See the official <a href="https://herdr.dev/tui/">Herdr TUI overview</a> and <a href="https://herdr.dev/tui/docs/">Herdr TUI documentation</a> for host setup.</p>
           <p>tmoxie uses your existing SSH connection and does not provide an always-on notification service. iOS can suspend that connection in the background. Remote processes remain subject to the host and Herdr's own lifecycle.</p>
         </section>
