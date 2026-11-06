@@ -1,0 +1,26 @@
+# tmoxie
+
+> tmoxie is an iPhone SSH client for tmux sessions, remote coding agents, and optional Herdr TUI workspaces. Official product documentation is at https://tmoxie.app/.
+
+## Product status and limits
+
+- App Store launch is in progress. This site does not provide a public App Store download link.
+- Requires iPhone with iOS 17 or later and a reachable SSH host with password authentication.
+- Shells, coding agents, tmux sessions, and Herdr TUI workspaces run on the user's remote machine, not on the iPhone or a tmoxie hosting service.
+- Basic SSH is free. Premium has a seven-day trial with no automatic charge, followed by an optional one-time in-app purchase. Localized pricing appears before purchase.
+- Herdr integration targets compatible stable Herdr TUI 0.8 releases. The newer Herdr app built on herdr-core is a separate product.
+- iOS may suspend SSH connections in the background. tmoxie does not provide an always-on push notification service.
+
+## Official pages
+
+- [Product](https://tmoxie.app/): Capabilities, availability, and pricing model.
+- [SSH and tmux setup guide](https://tmoxie.app/tutorials/): Prepare a host, connect through Tailscale, resume sessions, send agent prompts, and preview remote web apps.
+- [Documentation](https://tmoxie.app/docs/): Requirements, SSH security, tmux, Herdr TUI, keyboard tools, agent input, local data, and current limits.
+- [Support](https://tmoxie.app/support/): Troubleshooting and support contact.
+- [Privacy policy](https://tmoxie.app/privacy/): Credentials, terminal data, uploads, Apple services, diagnostics, and deletion.
+- [Terms of use](https://tmoxie.app/terms/): App license, Premium trial and purchase, and third-party requirements.
+
+## Related primary sources
+
+- [tmux documentation](https://github.com/tmux/tmux/wiki): The remote terminal multiplexer.
+- [Herdr TUI](https://herdr.dev/tui/): The optional remote workspace manager supported by tmoxie.

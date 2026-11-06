@@ -3,25 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Install tmux, connect a private host with Tailscale, and learn tmoxie sessions, agent prompts, shortcuts, uploads, and Web Preview.">
+  <meta name="description" content="Connect your iPhone to a remote SSH host with tmoxie. Set up tmux and Tailscale, resume sessions, send agent prompts, and preview remote web apps.">
   <meta name="theme-color" content="#1a1b26">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tmoxie.app/tutorials/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="tmoxie">
-  <meta property="og:title" content="tmoxie Tutorial | tmux, Tailscale, and mobile coding">
-  <meta property="og:description" content="Install tmux, reach a private host with Tailscale, resume sessions, guide an AI agent, and preview a remote web app.">
+  <meta property="og:title" content="SSH and tmux on iPhone: setup guide | tmoxie">
+  <meta property="og:description" content="Connect your iPhone to a remote SSH host with tmoxie. Set up tmux and Tailscale, resume sessions, send agent prompts, and preview remote web apps.">
   <meta property="og:url" content="https://tmoxie.app/tutorials/">
   <meta property="og:image" content="https://tmoxie.app/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="tmoxie app icon beside a remote terminal session">
+  <meta name="twitter:title" content="SSH and tmux on iPhone: setup guide | tmoxie">
+  <meta name="twitter:description" content="Connect your iPhone to a remote SSH host with tmoxie. Set up tmux and Tailscale, resume sessions, send agent prompts, and preview remote web apps.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://tmoxie.app/assets/og-image.jpg">
   <meta name="twitter:image:alt" content="tmoxie app icon beside a remote terminal session">
-  <title>tmoxie Tutorial | tmux, Tailscale, and Mobile Coding</title>
+  <title>SSH and tmux on iPhone: setup guide | tmoxie</title>
   <link rel="icon" href="../assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/styles.css">
   <script src="../assets/site.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://tmoxie.app/tutorials/#webpage",
+        "url": "https://tmoxie.app/tutorials/",
+        "name": "SSH and tmux on iPhone: setup guide | tmoxie",
+        "description": "Connect your iPhone to a remote SSH host with tmoxie. Set up tmux and Tailscale, resume sessions, send agent prompts, and preview remote web apps.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://tmoxie.app/#website"
+        },
+        "about": {
+          "@id": "https://tmoxie.app/#app"
+        },
+        "breadcrumb": {
+          "@id": "https://tmoxie.app/tutorials/#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://tmoxie.app/tutorials/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "tmoxie",
+            "item": "https://tmoxie.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tutorials",
+            "item": "https://tmoxie.app/tutorials/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -46,7 +92,7 @@
       <div class="page-hero-inner shell">
         <div>
           <p class="eyebrow">Tutorials</p>
-          <h1>From first host to mobile coding in 15 minutes.</h1>
+          <h1>Use SSH and tmux from your iPhone.</h1>
           <p class="lede">Follow the quick start once, then use the focused guides whenever you add a tool to your workflow.</p>
         </div>
         <div class="page-hero-mark">
@@ -246,6 +292,7 @@ ssh username@100.x.y.z</code></pre>
 
         <section id="agent-composer">
           <h2>Send a prompt with the agent composer</h2>
+          <p>Run your terminal coding agent on the remote host, inside tmux. tmoxie supports input for known agents such as Claude Code, Codex, and OpenCode. The agent runs on your machine, and its own account, installation, and usage terms still apply. For Herdr-based work, see the <a href="../docs/#herdr">Herdr TUI reference</a>.</p>
           <p>Known agent panes open a local composer above the keyboard. The draft stays on your iPhone until you send it.</p>
           <ol>
             <li>Type or dictate the message in the composer.</li>

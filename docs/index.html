@@ -3,25 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="tmoxie documentation for SSH and Tailscale hosts, tmux sessions, terminal input, agent composer, shortcuts, uploads, and Web Preview.">
+  <meta name="description" content="Reference for tmoxie on iPhone. Check SSH requirements, tmux sessions, optional Herdr TUI workspaces, coding agent input, Web Preview, and current limits.">
   <meta name="theme-color" content="#1a1b26">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tmoxie.app/docs/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="tmoxie">
-  <meta property="og:title" content="tmoxie Documentation">
-  <meta property="og:description" content="Reference for SSH and Tailscale hosts, tmux sessions, agent workflows, shortcuts, uploads, Web Preview, and privacy.">
+  <meta property="og:title" content="SSH, tmux and Herdr reference for iPhone | tmoxie">
+  <meta property="og:description" content="Reference for tmoxie on iPhone. Check SSH requirements, tmux sessions, optional Herdr TUI workspaces, coding agent input, Web Preview, and current limits.">
   <meta property="og:url" content="https://tmoxie.app/docs/">
   <meta property="og:image" content="https://tmoxie.app/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="tmoxie app icon beside a remote terminal session">
+  <meta name="twitter:title" content="SSH, tmux and Herdr reference for iPhone | tmoxie">
+  <meta name="twitter:description" content="Reference for tmoxie on iPhone. Check SSH requirements, tmux sessions, optional Herdr TUI workspaces, coding agent input, Web Preview, and current limits.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://tmoxie.app/assets/og-image.jpg">
   <meta name="twitter:image:alt" content="tmoxie app icon beside a remote terminal session">
-  <title>tmoxie Documentation</title>
+  <title>SSH, tmux and Herdr reference for iPhone | tmoxie</title>
   <link rel="icon" href="../assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/styles.css">
   <script src="../assets/site.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://tmoxie.app/docs/#webpage",
+        "url": "https://tmoxie.app/docs/",
+        "name": "SSH, tmux and Herdr reference for iPhone | tmoxie",
+        "description": "Reference for tmoxie on iPhone. Check SSH requirements, tmux sessions, optional Herdr TUI workspaces, coding agent input, Web Preview, and current limits.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://tmoxie.app/#website"
+        },
+        "about": {
+          "@id": "https://tmoxie.app/#app"
+        },
+        "breadcrumb": {
+          "@id": "https://tmoxie.app/docs/#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://tmoxie.app/docs/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "tmoxie",
+            "item": "https://tmoxie.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://tmoxie.app/docs/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -46,7 +92,7 @@
       <div class="page-hero-inner shell">
         <div>
           <p class="eyebrow">Documentation</p>
-          <h1>Know what tmoxie does, and where your work lives.</h1>
+          <h1>SSH, tmux, and Herdr on iPhone.</h1>
           <p class="lede">A practical reference for connections, tmux navigation, agent input, previews, local data, and recovery.</p>
         </div>
         <div class="page-hero-mark">
@@ -63,6 +109,7 @@
           <a href="#concepts">Core concepts</a>
           <a href="#hosts">Hosts and security</a>
           <a href="#sessions">Sessions and windows</a>
+          <a href="#herdr">Herdr TUI workspaces</a>
           <a href="#terminal">Terminal input</a>
           <a href="#composer">Agent composer</a>
           <a href="#shortcuts">Shortcut bar</a>
@@ -134,6 +181,14 @@
             <img src="../assets/screens/panes.jpg" width="660" height="1434" loading="lazy" alt="Multiple tmux panes presented in tmoxie">
             <figcaption>Remote tmux remains the source of truth for session, window, and pane state.</figcaption>
           </figure>
+        </section>
+
+        <section id="herdr">
+          <h2>Herdr TUI workspaces on iPhone</h2>
+          <p>Herdr TUI is an optional remote workspace manager alongside tmux. Install a compatible Herdr TUI release on your SSH host first. tmoxie connects over SSH and lets you navigate its sessions, workspaces, tabs, and panes. Coding agents run inside those remote panes.</p>
+          <p>The current integration supports compatible stable Herdr TUI 0.8 releases. tmoxie checks compatibility before opening a workspace. Herdr requires an active Premium trial or the one-time Premium purchase. You can continue to use tmux when Herdr is unavailable or incompatible.</p>
+          <p>Herdr TUI and the newer Herdr app built on herdr-core are separate products. This integration is for Herdr TUI, and does not imply support for the newer app's agents or workspaces. See the official <a href="https://herdr.dev/tui/">Herdr TUI overview</a> and <a href="https://herdr.dev/tui/docs/">Herdr TUI documentation</a> for host setup.</p>
+          <p>tmoxie uses your existing SSH connection and does not provide an always-on notification service. iOS can suspend that connection in the background. Remote processes remain subject to the host and Herdr's own lifecycle.</p>
         </section>
 
         <section id="terminal">

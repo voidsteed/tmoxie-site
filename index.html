@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="tmoxie is an iPhone SSH and tmux terminal for resuming remote coding sessions, guiding AI agents, and previewing web apps from anywhere.">
+  <meta name="description" content="Connect to your SSH host from iPhone, resume tmux sessions, guide remote coding agents, and preview web apps. Free basic SSH with optional one-time Premium.">
   <meta name="theme-color" content="#1a1b26">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tmoxie.app/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="tmoxie">
-  <meta property="og:title" content="tmoxie | Your coding sessions, in your pocket">
-  <meta property="og:description" content="Resume tmux sessions, guide terminal AI agents, and preview remote web apps from your iPhone.">
+  <meta property="og:title" content="tmoxie | iPhone SSH client for tmux and coding agents">
+  <meta property="og:description" content="Connect to your SSH host from iPhone, resume tmux sessions, guide remote coding agents, and preview web apps. Free basic SSH with optional one-time Premium.">
   <meta property="og:url" content="https://tmoxie.app/">
   <meta property="og:image" content="https://tmoxie.app/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="tmoxie app icon beside a remote terminal session">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="tmoxie | Your coding sessions, in your pocket">
-  <meta name="twitter:description" content="Resume tmux sessions, guide terminal AI agents, and preview remote web apps from your iPhone.">
+  <meta name="twitter:title" content="tmoxie | iPhone SSH client for tmux and coding agents">
+  <meta name="twitter:description" content="Connect to your SSH host from iPhone, resume tmux sessions, guide remote coding agents, and preview web apps. Free basic SSH with optional one-time Premium.">
   <meta name="twitter:image" content="https://tmoxie.app/assets/og-image.jpg">
   <meta name="twitter:image:alt" content="tmoxie app icon beside a remote terminal session">
-  <title>tmoxie | Your coding sessions, in your pocket</title>
+  <title>tmoxie | iPhone SSH client for tmux and coding agents</title>
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="assets/media/hero-poster.jpg" as="image" fetchpriority="high">
@@ -30,13 +30,40 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "tmoxie",
-    "url": "https://tmoxie.app/",
-    "image": "https://tmoxie.app/assets/app-icon.png",
-    "description": "An iPhone SSH and tmux terminal for remote coding sessions and terminal AI agents.",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "iOS 17 or later"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://tmoxie.app/#website",
+        "url": "https://tmoxie.app/",
+        "name": "tmoxie",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://tmoxie.app/#app",
+        "name": "tmoxie",
+        "url": "https://tmoxie.app/",
+        "image": "https://tmoxie.app/assets/app-icon.png",
+        "description": "An iPhone SSH client for tmux sessions, remote coding agents, and optional Herdr TUI workspaces. Basic SSH is free. Premium is a one-time in-app purchase after a seven-day trial with no automatic charge. App Store launch is in progress.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "iOS 17 or later",
+        "softwareRequirements": "A reachable SSH server with password authentication. tmux or a compatible Herdr TUI installation is required for its respective workspace features."
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://tmoxie.app/#webpage",
+        "url": "https://tmoxie.app/",
+        "name": "tmoxie | iPhone SSH client for tmux and coding agents",
+        "description": "Connect to your SSH host from iPhone, resume tmux sessions, guide remote coding agents, and preview web apps. Free basic SSH with optional one-time Premium.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://tmoxie.app/#website"
+        },
+        "about": {
+          "@id": "https://tmoxie.app/#app"
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -79,7 +106,7 @@
           <span><strong>tmoxie</strong><small>SSH + tmux for iPhone</small></span>
         </div>
         <h1 id="hero-title">Your coding sessions, in your pocket.</h1>
-        <p class="hero-copy">Resume tmux, guide AI agents, and preview remote web apps from your iPhone.</p>
+        <p class="hero-copy">tmoxie is an iPhone SSH client for tmux sessions, remote coding agents, and web app previews.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="tutorials/">Start tutorial</a>
           <a class="button button-secondary" href="docs/">Read docs</a>
@@ -103,7 +130,7 @@
     <section class="section shell product-intro" aria-labelledby="product-title">
       <div class="section-heading compact-heading">
         <h2 id="product-title">Remote terminal work, shaped for iPhone.</h2>
-        <p>tmoxie connects directly to your machine with your SSH username and password. Your shell, tmux layout, and agent work stay where they already run.</p>
+        <p>tmoxie connects directly to your machine with your SSH username and password. Your shell, tmux layout, and agent work stay where they already run. Start with the <a href="tutorials/#quick-start">SSH and tmux setup guide</a>, or read about <a href="docs/#herdr">optional Herdr TUI workspaces</a>.</p>
       </div>
       <div class="workflow-line" role="group" aria-label="tmoxie connection flow">
         <span>Your iPhone</span>
