@@ -283,10 +283,10 @@ ssh username@100.x.y.z</code></pre>
             <li>Review the inserted remote path and add instructions.</li>
             <li>Tap Send when the draft is ready.</li>
           </ol>
-          <p>Uploads are stored under <code>~/.tmoxie-uploads</code> on the selected remote host. Check usage before it becomes a disk problem:</p>
+          <p>Uploads are temporary files under <code>~/.tmoxie-uploads</code> on the selected remote host. Later uploads can remove older attachments. Keep a separate copy of files you need. Check the directory before removing sensitive uploads yourself:</p>
           <pre><code>du -sh ~/.tmoxie-uploads
 find ~/.tmoxie-uploads -type f -mtime +7 -print</code></pre>
-          <p>After reviewing the printed list, remove files older than seven days:</p>
+          <p>If you want to remove files older than seven days, review the printed list first, then run:</p>
           <pre><code>find ~/.tmoxie-uploads -type f -mtime +7 -delete</code></pre>
         </section>
 

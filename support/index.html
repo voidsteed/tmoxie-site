@@ -43,61 +43,62 @@
   <main class="legal" id="main">
     <p class="eyebrow">Help</p>
     <h1>tmoxie Support</h1>
-    <p class="lede support-lede">Trouble connecting, restoring Premium, or getting a session to render correctly? We’ll help you narrow it down.</p>
-
     <div class="contact-box">
       <h2>Contact support</h2>
-      <p>For setup help first, use the <a href="../tutorials/">tutorials</a> or <a href="../docs/">documentation</a>. Email the support inbox when the app still does not behave as expected.</p>
+      <p>For app or privacy questions, contact the support inbox.</p>
       <a class="email-button" href="mailto:tmoxie.support@gmail.com?subject=tmoxie%20Support">Email tmoxie.support@gmail.com</a>
     </div>
+    <p>You can also open Settings in tmoxie, then Help &amp; diagnostics, then Contact support.</p>
+    <p>Include your tmoxie version, iOS version, what you tried, and what happened. Do not include passwords, private keys, or confidential terminal content.</p>
+
+    <p>For setup walkthroughs, use the <a href="../tutorials/">tutorials</a> or <a href="../docs/">documentation</a>.</p>
 
     <section>
-      <h2>Before contacting support</h2>
-      <p>Please include:</p>
+      <h2>Connect to a machine</h2>
+      <p>tmoxie requires an iPhone with iOS 17 or later.</p>
       <ul>
-        <li>tmoxie version and build from Settings;</li>
-        <li>iPhone model and iOS version;</li>
-        <li>what you expected, what happened, and exact reproduction steps; and</li>
-        <li>a screenshot if it is safe to share.</li>
+        <li>Check the host address, SSH port, username, and password. This version supports password authentication.</li>
+        <li>Make sure SSH is enabled on the host and that your iPhone can reach it. Join the required local network or VPN.</li>
+        <li>Allow local network access in iOS Settings when connecting to a local host.</li>
+        <li>For tmux workspaces, install tmux on the host. For Herdr integration, install and set up Herdr on that machine.</li>
       </ul>
-      <p>Never send an SSH password, private key, recovery code, or access token. Diagnostic logs can include hostnames, usernames, session names, paths, and error text. If raw byte recording was enabled, it can include terminal content. Review and redact files before sharing.</p>
+      <p>If a trusted host key changes, verify the new fingerprint with the machine's administrator. Remove the old entry in Settings under Known hosts only after confirming the change.</p>
     </section>
 
     <section>
-      <h2>Requirements</h2>
-      <ul>
-        <li>iPhone with iOS 17 or later;</li>
-        <li>a reachable SSH server and username/password login (SSH key authentication is not included in the current version);</li>
-        <li>tmux installed on the host for session, window, pane, and reconnect features. Hosts without tmux can use the basic plain-SSH fallback; and</li>
-        <li>Local Network permission when connecting over LAN or VPN.</li>
-      </ul>
+        <h2>Sessions and Web Preview</h2>
+        <h3>Sessions are empty</h3>
+        <p>Run <code>tmux list-sessions</code> on the host, return to Hosts, reconnect, and use pull-to-refresh. tmux sessions live on the remote host. Hosts without tmux can use the basic plain-SSH fallback.</p>
+        <h3>App returned from background</h3>
+        <p>iOS may suspend the SSH connection. tmoxie reconnects after the app becomes active. Keep work inside tmux so remote processes can continue while disconnected.</p>
+        <h3>Web Preview fails</h3>
+        <p>Web Preview supports HTTP services bound to the remote host's loopback interface. Confirm that the service listens on <code>127.0.0.1:&lt;port&gt;</code> and SSH port forwarding is allowed. HTTPS preview is not supported in the current version.</p>
     </section>
 
     <section>
-      <h2>Common fixes</h2>
-      <h3>Connection fails</h3>
-      <p>Confirm the hostname or IP, port, VPN or Tailscale connectivity, username, password, and that <code>sshd</code> is running. Try the same connection from another SSH client.</p>
-      <h3>Host key changed</h3>
-      <p>Stop and verify the new fingerprint with the host administrator. Delete the saved trusted key only after confirming the server was legitimately rebuilt or rotated.</p>
-      <h3>Sessions are empty</h3>
-      <p>Run <code>tmux list-sessions</code> on the host, return to Hosts, reconnect, and use pull-to-refresh. tmux sessions live on the remote host, not in tmoxie.</p>
-      <h3>App returned from background</h3>
-      <p>iOS may suspend the SSH connection. tmoxie reconnects after the app becomes active; keeping work inside tmux lets remote processes continue while disconnected.</p>
-      <h3>Dictation unavailable</h3>
-      <p>Enable Microphone and Speech Recognition for tmoxie in iOS Settings. Dictation works only when on-device speech recognition is supported.</p>
-      <h3>Attachment missing</h3>
-      <p>Selected photos and files are uploaded to <code>~/.tmoxie-uploads</code> on the remote host, then their path is inserted into the active pane or composer. Check remote permissions and free disk space. tmoxie does not automatically delete old uploads, so remove them manually when needed.</p>
-      <h3>Web Preview fails</h3>
-      <p>Web Preview supports HTTP services bound to the remote host’s loopback interface. Confirm the service is listening on <code>127.0.0.1:&lt;port&gt;</code>. HTTPS preview is not supported in the current version.</p>
-      <h3>Purchase not restored</h3>
-      <p>Open Settings &gt; Plan, choose the Premium options, and tap Restore Purchases while signed into the Apple Account that purchased Premium. Apple handles billing and refund requests.</p>
+      <h2>Restore Premium</h2>
+      <p>Open Settings in tmoxie, then Plan, and choose Restore Purchases in the Premium options. Use the same Apple Account that made the purchase and check your internet connection.</p>
+      <p>The seven-day trial makes no automatic charge. Premium is a one-time purchase. For billing or refund requests, visit <a href="https://support.apple.com/billing">Apple's billing and purchase support</a>.</p>
     </section>
 
     <section>
-      <h2>Diagnostics and deletion</h2>
-      <p>Settings &gt; Diagnostics lets you export or clear the local debug log and opt in to a capped raw terminal-byte recording for one launch. Sharing is always an explicit iOS share action.</p>
-      <p>Delete a host in tmoxie before uninstalling the app to remove its Keychain password through the app. Delete remote uploads separately from <code>~/.tmoxie-uploads</code> on the host.</p>
-      <p>Read the <a href="../privacy/">Privacy Policy</a> or <a href="../terms/">Terms of Use</a>.</p>
+      <h2>Dictation and attachments</h2>
+      <p>Dictation needs microphone permission, speech recognition permission, and on-device recognition support for your device and language. You can continue typing if dictation is unavailable.</p>
+      <p>Photos and files you upload are sent to the connected machine. They are temporary remote attachments and may be removed during later uploads. Keep a separate copy of files you need.</p>
+    </section>
+
+    <section>
+      <h2>Share diagnostics</h2>
+      <p>In Settings, open Help &amp; diagnostics and choose Send diagnostics. Review the bundle before you share it. The bundle can contain connection details, logs, device information, and an existing terminal recording.</p>
+      <p>If support asks for a terminal capture, use Diagnostic tools to enable recording and reproduce the issue. Recording can contain sensitive terminal output. Turn recording off and use Clear byte recording when you finish. Clear debug log removes the local app log.</p>
+    </section>
+
+    <section>
+      <h2>Remove your data</h2>
+      <p>Delete a saved host from the host list to remove the saved connection and request deletion of its Keychain password. Remove trusted fingerprints separately in Known hosts. Clear diagnostics in Diagnostic tools.</p>
+      <p>Deleting the app removes its local app container, including the saved agent inbox. Remove saved hosts first, because iOS Keychain items may remain after app deletion. Local deletion does not stop remote sessions or remove remote files.</p>
+      <p>To remove uploaded attachments, delete the files in <code>~/.tmoxie-uploads</code> on your connected machine. Also manage copies retained by your agents or other services.</p>
+      <p>See the <a href="../privacy/">privacy policy</a> for the full data overview.</p>
     </section>
   </main>
 

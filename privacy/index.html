@@ -42,78 +42,80 @@
 
   <main class="legal" id="main">
     <p class="eyebrow">Legal</p>
-    <h1>Privacy Policy</h1>
-    <p class="effective">Effective: August 8, 2026</p>
-
-    <div class="summary">
-      <p><strong>The short version:</strong> tmoxie has no developer-operated account system or application backend, and uses no ads, tracking, or third-party analytics. The app does not automatically send us your credentials, terminal contents, prompts, or usage data.</p>
-    </div>
+    <h1>Privacy policy</h1>
+    <p class="effective">Updated November 5, 2026</p>
+    <p>tmoxie is an SSH terminal for connecting to machines you choose. This policy explains the app's local storage, the information sent by the features you use, and your controls.</p>
 
     <section>
-      <h2>About this policy</h2>
-      <p>tmoxie is an iOS SSH and tmux client provided by the tmoxie developer. This policy covers the tmoxie app and tmoxie.app. tmoxie keeps its operational app data on your device and does not automatically upload it to us. Data can leave the device when you send it to an SSH host, share it, open Web Preview resources, or use Apple platform services and backups under your device settings.</p>
+      <h2>Connections and local data</h2>
+      <p>tmoxie stores saved host names, addresses, ports, usernames, and connection dates on your device. Saved SSH passwords use the iOS Keychain with device-only protection and iCloud Keychain synchronization disabled.</p>
+      <p>The app also stores preferences, custom shortcuts, trusted server fingerprints, connection counts, recent Web Preview addresses, agent inbox messages, and information needed to recover unfinished remote actions. Recent preview addresses may include a path or query you entered.</p>
+      <p>tmoxie does not provide an account service or app-managed cloud synchronization. Your iOS backup settings may affect app data. Device-only Keychain items do not migrate to another device.</p>
     </section>
 
     <section>
-      <h2>Data kept on your device</h2>
-      <p>tmoxie stores the information needed to provide its features locally:</p>
+      <h2>Your connected machines and services</h2>
+      <p>SSH authentication, terminal input, remote commands, and terminal output travel between your device and the host you select over SSH. Actions such as creating or closing a session change that remote machine.</p>
+      <p>If you use Herdr, tmoxie communicates with Herdr on the connected machine over SSH. Prompts you send to a remote coding agent reach that agent. The agent or other software on your machine may send information to its own service provider under that provider's terms and privacy policy.</p>
+      <p>tmoxie does not operate a relay for your SSH sessions or an AI service that receives your prompts.</p>
+    </section>
+
+    <section>
+      <h2>Photos, files, and clipboard</h2>
+      <p>When you choose an attachment or use a clipboard action, tmoxie reads the content you select for that action. Uploaded photos and files go to a temporary attachment directory on your connected machine. The remote path can then be added to your terminal or prompt.</p>
+      <p>tmoxie attempts to remove older attachments during later uploads to limit remote storage. This cleanup is not a guaranteed deletion schedule. Remove sensitive uploads from the remote machine yourself, including any copies made by agents or other software.</p>
+    </section>
+
+    <section>
+      <h2>Dictation</h2>
+      <p>Dictation asks for microphone and speech recognition permission. tmoxie requires Apple's on-device speech recognition and disables dictation when the device or language cannot provide it. It does not fall back to server transcription.</p>
+      <p>The transcript becomes editable prompt text. Sending that text transmits it to the remote destination you choose, like text you type.</p>
+    </section>
+
+    <section>
+      <h2>Web Preview</h2>
+      <p>Web Preview connects through your SSH connection to a development server on the remote machine. Pages can load resources and contact services of their own. Those services handle requests under their own privacy policies.</p>
+      <p>Preview website data uses a temporary browser store. The app separately remembers recent preview addresses on your device.</p>
+    </section>
+
+    <section>
+      <h2>Purchases</h2>
+      <p>Apple processes in-app purchases. tmoxie checks your purchase status to unlock Premium and stores local trial and entitlement information. tmoxie does not receive your payment card details.</p>
+    </section>
+
+    <section>
+      <h2>Diagnostics and support</h2>
+      <p>tmoxie keeps a size-limited diagnostic log on your device. Logs can include connection details, remote names and paths, error messages, and app activity. Optional terminal byte recording is off by default. When enabled, it can capture terminal content, including sensitive text displayed by remote software.</p>
+      <p>Diagnostics stay local until you choose to share them. A diagnostic bundle can include the log, an existing terminal recording, app version, device model, iOS version, timestamps, and a diagnostic session identifier. Review the files before sharing. Do not send passwords, private keys, or confidential terminal content.</p>
+      <p>If you contact support, your email address, message, and any attachments you send are used to handle your request. You can ask about removal of support correspondence at the address below.</p>
+      <p>tmoxie does not send usage analytics, advertising identifiers, or automatic diagnostic reports to a tmoxie server. Apple may separately process App Store or device diagnostics according to your Apple settings.</p>
+    </section>
+
+    <section>
+      <h2>Permissions and visible information</h2>
+      <p>Local network access lets tmoxie reach hosts on your network. Photo and file pickers let you select attachments. Optional app lock uses iOS device authentication. tmoxie does not receive your biometric data.</p>
+      <p>Local notifications can show agent messages. Live Activities can show host, session, and agent status on your Lock Screen. Control these features in tmoxie and iOS Settings.</p>
+    </section>
+
+    <section>
+      <h2>Remove data</h2>
       <ul>
-        <li>saved-host labels, hostnames or IP addresses, ports, and usernames;</li>
-        <li>SSH passwords in the iOS Keychain, with device-only, non-synchronizing Keychain protection;</li>
-        <li>trusted SSH host-key fingerprints;</li>
-        <li>settings, shortcut layouts, appearance choices, local connection counters and dates, remembered Web Preview addresses, and local trial or purchase markers;</li>
-        <li>Agent Inbox items, which can include an agent name, message, host, session, window and pane routing information, and timestamp; and</li>
-        <li>a diagnostic log, which can contain technical events and identifiers such as SSH username, hostname or IP address, session name, remote path, and error text.</li>
+        <li>Delete a saved host from the host list to remove its saved connection and request deletion of its stored password.</li>
+        <li>Remove trusted server fingerprints in Settings under Known hosts. Verify a changed server key before trusting it again.</li>
+        <li>Clear the debug log and terminal byte recording in Settings, Help &amp; diagnostics, Diagnostic tools.</li>
+        <li>Delete the app to remove its local app container, including the saved agent inbox. iOS Keychain items may remain after app deletion, so remove saved hosts first.</li>
       </ul>
-      <p>The diagnostic log remains on your device and grows until you clear it from Settings, Diagnostics. Raw terminal byte recording is off by default, must be enabled for the current app launch, and stops at 4 MB. A raw recording can contain terminal input and output, including sensitive text. Neither file is sent to us automatically. You choose whether and where to share it with the iOS share sheet.</p>
-      <p>tmoxie does not provide app-level iCloud sync. Apple may include ordinary app-container data in device backups according to your Apple and device settings.</p>
+      <p>Deleting a saved host or the app does not stop remote sessions, remove uploaded files, or delete data held by a service you use. Manage that data on the remote machine or with the service provider.</p>
     </section>
 
     <section>
-      <h2>Connections and content you choose to send</h2>
-      <p>tmoxie connects directly from your device to SSH hosts you specify. SSH traffic can include authentication data, terminal input and output, tmux session metadata, composer messages, clipboard text, and photos or files you select. SSH protects that traffic in transit. The destination host and software running there receive and process the content under their own configuration and policies; tmoxie does not proxy SSH traffic through a server operated by us.</p>
-      <p>When you attach a photo or file, tmoxie uploads it to <code>~/.tmoxie-uploads</code> on the selected host. tmoxie does not automatically delete these remote files. They remain until you or the host removes them.</p>
-      <p>Web Preview tunnels a web service on the selected host through the existing SSH connection and uses a non-persistent WebKit data store. A page you open can itself request third-party resources or services. Those destinations may receive request information under their own privacy policies.</p>
+      <h2>This website</h2>
+      <p>This site has no advertising, analytics scripts, contact forms, or cookies set by its own code. GitHub Pages hosts this site. GitHub receives request information needed to serve and secure the pages. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>. A linked service applies its own privacy policy when you visit it.</p>
     </section>
 
     <section>
-      <h2>Permissions and Apple services</h2>
-      <ul>
-        <li><strong>Microphone and Speech Recognition:</strong> used only after you start dictation. tmoxie requires on-device recognition and disables dictation when on-device recognition is unavailable. Audio is not saved or sent to us.</li>
-        <li><strong>Photos and Files:</strong> only items you select through system pickers are read for annotation or upload.</li>
-        <li><strong>Clipboard:</strong> read only after an explicit paste or Clipboard Image action. Text pasted into a terminal and images you upload are sent to the selected SSH host.</li>
-        <li><strong>Local Network:</strong> used to reach SSH hosts on your LAN or VPN.</li>
-        <li><strong>Face ID or device authentication:</strong> used to unlock the app when App Lock is enabled. tmoxie receives only the authentication result, not biometric data.</li>
-        <li><strong>Notifications and system activity surfaces:</strong> local agent alerts can contain agent messages and routing details and may appear outside the app according to your iOS notification settings.</li>
-        <li><strong>StoreKit:</strong> Apple processes purchases, restores, and transaction status. tmoxie stores only local entitlement and trial state needed to provide access.</li>
-      </ul>
-      <p>Apple may process purchase, notification, device-backup, and optional crash or diagnostic information under Apple’s privacy policy. tmoxie includes no built-in or third-party crash-reporting SDK and does not add its own analytics service.</p>
-      <p>Links that you choose to open can leave tmoxie for your browser or mail app. Apart from Apple platform services and resources requested by a Web Preview page, tmoxie’s terminal, prompt, and file transport goes only to the SSH host you select.</p>
-    </section>
-
-    <section>
-      <h2>Support and information you voluntarily share</h2>
-      <p>If you email support or share a screenshot, log, or diagnostic bundle, we receive the email address and content you send. We use it only to respond, diagnose problems, improve tmoxie, and prevent abuse. Please remove passwords, private keys, access tokens, and unrelated terminal content before sharing. We do not sell this information. You may ask us to delete a support message or attachment by emailing <a href="mailto:tmoxie.support@gmail.com?subject=tmoxie%20Privacy">tmoxie.support@gmail.com</a>.</p>
-    </section>
-
-    <section>
-      <h2>Your controls and deletion</h2>
-      <p>You can delete saved hosts, trusted host keys, inbox items, debug logs, and byte recordings in the app. Delete a saved host before uninstalling tmoxie to remove its stored SSH password through the app. iOS can preserve Keychain items across an uninstall, including local trial and purchase markers, and tmoxie has no remote access to those items. Remote attachments and terminal data must be deleted on the SSH host.</p>
-    </section>
-
-    <section>
-      <h2>Website</h2>
-      <p>tmoxie.app is a static site with no tmoxie analytics or advertising cookies. Its hosting provider may process standard request data, such as IP address, browser information, and request time, to deliver and secure the site.</p>
-    </section>
-
-    <section>
-      <h2>Children</h2>
-      <p>tmoxie is a developer tool and is not directed to children under 13. We do not knowingly collect personal information from children.</p>
-    </section>
-
-    <section>
-      <h2>Changes and contact</h2>
-      <p>We may update this policy as tmoxie changes and will revise the effective date on this page. Questions or privacy requests: <a href="mailto:tmoxie.support@gmail.com?subject=tmoxie%20Privacy">tmoxie.support@gmail.com</a>.</p>
+      <h2>Questions</h2>
+      <p>Email <a href="mailto:tmoxie.support@gmail.com">tmoxie.support@gmail.com</a> for privacy questions. The <a href="../support/">support page</a> has more help. Changes to this policy appear on this page with an updated date.</p>
     </section>
   </main>
 

@@ -138,7 +138,7 @@
 
         <section id="terminal">
           <h2>Terminal input and scrolling</h2>
-          <p>Shell panes receive direct terminal input. Known agent panes also gain the optional local composer described below.</p>
+          <p>Terminal emulation uses libghostty VT with a UIKit renderer. Shell panes receive direct terminal input. Known agent panes also gain the optional local composer described below.</p>
           <ul>
             <li>Drag terminal content to scroll through available history.</li>
             <li>Use the shortcut bar for keys that are awkward on the iPhone keyboard.</li>
@@ -183,7 +183,7 @@
           <p>The composer attachment menu offers Photo Library, Files, and Clipboard Image. If the clipboard has no image, tmoxie keeps the action available and shows a clear message after you tap it.</p>
           <p>tmoxie uploads the selected item to <code>~/.tmoxie-uploads</code> on the active SSH host and inserts the remote path into the draft. One selected image can be annotated before upload.</p>
           <h3>Remote cleanup</h3>
-          <p>tmoxie does not automatically delete old remote uploads. Inspect and remove them when space matters:</p>
+          <p>Attachments are temporary. During later uploads, tmoxie attempts to remove older files to limit remote storage. This is not a guaranteed deletion schedule. Keep a separate copy of files you need, and remove sensitive uploads yourself. To inspect remote storage:</p>
           <pre><code>du -sh ~/.tmoxie-uploads
 find ~/.tmoxie-uploads -type f -mtime +7 -print
 # Review the list, then:
@@ -232,7 +232,7 @@ find ~/.tmoxie-uploads -type f -mtime +7 -delete</code></pre>
             <li>Raw terminal byte recording is off by default and limited to the current launch when enabled.</li>
             <li>Logs and recordings are shared only through an explicit iOS share action.</li>
           </ul>
-          <p>The debug log grows until you clear it from Settings, Diagnostics. Delete a saved host before uninstalling tmoxie if you want the app to remove its stored password from Keychain. Delete remote uploads separately on the SSH host. See the complete <a href="../privacy/">Privacy Policy</a>.</p>
+          <p>The debug log is size-limited. In Settings, open Help &amp; diagnostics, then Diagnostic tools, to clear the log or terminal byte recording. Send diagnostics creates a bundle that can include an existing terminal recording. Review it before sharing. Delete a saved host before uninstalling tmoxie to request removal of its Keychain password. Delete remote uploads separately on the SSH host. See the complete <a href="../privacy/">Privacy Policy</a>.</p>
         </section>
 
         <section id="limits">
@@ -240,7 +240,7 @@ find ~/.tmoxie-uploads -type f -mtime +7 -delete</code></pre>
           <ul>
             <li>Password-based SSH only.</li>
             <li>iPhone interface; iPad optimization is planned separately.</li>
-            <li>After the seven-day trial, adding a saved host or using Quick Connect requires Premium.</li>
+            <li>Basic SSH stays free after the seven-day Premium trial. The free plan includes one saved host and one workspace target. Additional saved hosts, Quick Connect, and Premium tools require the one-time upgrade.</li>
             <li>HTTP Web Preview only.</li>
             <li>Background execution remains subject to iOS suspension rules.</li>
             <li>Remote hosts, tmux, terminal agents, and web services remain third-party or user-controlled software.</li>
