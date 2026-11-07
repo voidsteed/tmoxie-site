@@ -8,13 +8,15 @@
 - Requires iPhone with iOS 17 or later. Live connections require a reachable SSH host with password authentication.
 - In tmoxie 0.3.87, Try Demo on Hosts opens a working local terminal and workspace simulation without a server, account, or purchase. Example commands and prompt replies are local simulations. No SSH, tmux or Herdr service, or AI model runs in the demo.
 - For live connections, shells, coding agents, tmux sessions, and Herdr TUI workspaces run on the user's remote machine, not on the iPhone or a tmoxie hosting service.
-- Basic SSH is free. Premium has a seven-day trial with no automatic charge, followed by an optional one-time in-app purchase. Localized pricing appears before purchase.
+- Free includes basic SSH, one saved host, and one selected tmux session/window/pane target. The first seven days include Premium automatically, with no purchase or automatic charge. Premium Lifetime is an optional one-time in-app purchase of $29.99 USD in the US. Localized pricing appears in the app before purchase. There is no subscription.
+- Premium adds additional saved hosts, Quick Connect, all tmux targets and creation controls, remote image/file uploads, custom shortcuts and agent pads, compatible Herdr TUI workspaces, and HTTP Web Preview. Agent alerts, haptics, and Live Activity status require Premium and work while tmoxie is active. Default keyboard controls, text paste, tmux composer/dictation, themes, in-app Inbox, and biometric app lock remain Free. Remote hosting and AI service usage are separate.
 - tmoxie 0.3.87 supports stable Herdr TUI 0.9.5 with protocol 22 and stable 0.8.x with protocol 19 or 20. The newer Herdr app built on herdr-core is a separate product.
 - iOS may suspend SSH connections in the background. tmoxie does not provide an always-on push notification service.
 
 ## Official pages
 
-- [Product](https://tmoxie.app/): Capabilities, availability, and pricing model.
+- [Product](https://tmoxie.app/): Capabilities and availability.
+- [Pricing](https://tmoxie.app/pricing/): Free limits, Premium Lifetime benefits and US price, the seven-day trial, and in-app purchase and restore instructions.
 - [SSH and tmux setup guide](https://tmoxie.app/tutorials/): Try the local demo, prepare a host, connect through Tailscale, set up Herdr TUI, resume sessions, send agent prompts, and preview remote web apps.
 - [Documentation](https://tmoxie.app/docs/): Requirements, SSH security, tmux, Herdr TUI, keyboard tools, agent input, local data, and current limits.
 - [Support](https://tmoxie.app/support/): Troubleshooting and support contact.

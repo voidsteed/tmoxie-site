@@ -16,6 +16,7 @@ ORIGIN = "https://tmoxie.app"
 APP_STORE_URL = "https://apps.apple.com/us/app/tmoxie/id6767995101?uo=4"
 PAGES = {
     "/": "index.html",
+    "/pricing/": "pricing/index.html",
     "/tutorials/": "tutorials/index.html",
     "/docs/": "docs/index.html",
     "/privacy/": "privacy/index.html",
@@ -30,6 +31,8 @@ class Page(HTMLParser):
         self.meta = {}
         self.canonicals = []
         self.links = []
+        self.region_links = {"header": [], "footer": []}
+        self.region = None
         self.ids = []
         self.titles = []
         self.headings = []
@@ -40,6 +43,10 @@ class Page(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag in self.region_links:
+            self.region = tag
+        if tag == "a" and self.region:
+            self.region_links[self.region].append(attrs.get("href", ""))
         if tag == "meta":
             name = attrs.get("name", attrs.get("property", ""))
             self.meta.setdefault(name, []).append(attrs.get("content", ""))
@@ -59,6 +66,8 @@ class Page(HTMLParser):
             self.buffer.append(data)
 
     def handle_endtag(self, tag):
+        if tag == self.region:
+            self.region = None
         if self.capture == tag:
             value = "".join(self.buffer).strip()
             {"title": self.titles, "h1": self.headings, "script": self.schemas}[tag].append(value)
@@ -77,6 +86,8 @@ def validate(root):
     titles, descriptions, resources = set(), set(), set()
     for path, page in pages.items():
         url = ORIGIN + path
+        for region, links in page.region_links.items():
+            require(any(urljoin(url, link) == ORIGIN + "/pricing/" for link in links), f"{path}: {region} must link to Pricing")
         require(len(page.titles) == 1 and page.titles[0], f"{path}: requires one title")
         title = page.titles[0]
         require(title not in titles, f"{path}: duplicate title")
@@ -173,7 +184,7 @@ def browser_check(root, browser, base_url, resources):
         const document = new DOMParser().parseFromString(text, 'text/html');
         return {path, status: response.status, url: response.url, sha256: digest, contentType: response.headers.get('content-type'), robotsHeader: response.headers.get('x-robots-tag'), robotsMeta: document.querySelector('meta[name=robots]')?.content || null};
       }));
-      const redirects = await Promise.all(['/docs', '/tutorials', '/support', '/privacy', '/terms'].map(async path => {
+      const redirects = await Promise.all(['/pricing', '/docs', '/tutorials', '/support', '/privacy', '/terms'].map(async path => {
         const response = await fetch(path, {cache: 'no-store'});
         return {path, status: response.status, url: response.url};
       }));

@@ -1,8 +1,9 @@
 # tmoxie site
 
-Public, dependency-free product, tutorial, documentation, legal, and support site for the tmoxie iPhone app.
+Public, dependency-free product, pricing, tutorial, documentation, legal, and support site for the tmoxie iPhone app.
 
 - [Product](https://tmoxie.app/)
+- [Pricing](https://tmoxie.app/pricing/)
 - [Tutorials](https://tmoxie.app/tutorials/)
 - [Documentation](https://tmoxie.app/docs/)
 - [Privacy policy](https://tmoxie.app/privacy/)

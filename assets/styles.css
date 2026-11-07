@@ -2216,3 +2216,356 @@ kbd {
     color: #111 !important;
   }
 }
+
+.pricing-hero {
+  padding-block: 80px 88px;
+}
+
+.pricing-hero h1 {
+  max-width: 850px;
+  margin: 0;
+  font-size: clamp(44px, 7vw, 78px);
+}
+
+.pricing-hero .lede {
+  max-width: 710px;
+  margin: 24px 0 0;
+  font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.55;
+}
+
+.pricing-plans {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.pricing-plan {
+  min-width: 0;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--bg-deep);
+}
+
+.pricing-plan-premium {
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+.pricing-plan h2 {
+  margin-bottom: 24px;
+  font-size: 26px;
+}
+
+.plan-price {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--text);
+}
+
+.plan-price strong {
+  color: var(--text-strong);
+  font-size: clamp(44px, 5vw, 64px);
+  font-weight: 760;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.plan-price span {
+  font-size: 16px;
+}
+
+.plan-summary {
+  margin-bottom: 22px;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.plan-inclusions {
+  margin: 0 0 32px;
+  padding-left: 20px;
+}
+
+.plan-inclusions li {
+  padding-left: 4px;
+}
+
+.plan-inclusions li + li {
+  margin-top: 12px;
+}
+
+.plan-inclusions li::marker {
+  color: var(--accent);
+}
+
+.plan-action {
+  margin-top: auto;
+}
+
+.plan-action .button {
+  max-width: 100%;
+  min-height: 50px;
+  white-space: normal;
+  line-height: 1.3;
+}
+
+.plan-action p {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.plan-action .plan-trial {
+  margin: 0 0 20px;
+  color: var(--text);
+}
+
+.pricing-benefits {
+  padding-block: 88px;
+  border-block: 1px solid var(--line-soft);
+  background: var(--bg-deep);
+}
+
+.pricing-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 72px;
+  row-gap: 48px;
+}
+
+.pricing-benefit-grid article {
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.pricing-benefit-grid h3 {
+  max-width: 420px;
+  margin-bottom: 18px;
+  font-size: clamp(25px, 3vw, 32px);
+  line-height: 1.2;
+}
+
+.pricing-benefit-grid p {
+  max-width: 500px;
+  margin-bottom: 16px;
+}
+
+.pricing-benefit-grid p:last-child {
+  margin-bottom: 0;
+}
+
+.pricing-benefit-grid a {
+  font-size: 16px;
+}
+
+.pricing-comparison {
+  padding-block: 88px;
+}
+
+.pricing-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 20px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.pricing-table thead th {
+  background: var(--surface-soft);
+  color: var(--text-strong);
+  font-weight: 730;
+}
+
+.pricing-table th:first-child {
+  width: 44%;
+}
+
+.pricing-table tbody th {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.pricing-table td {
+  color: var(--muted);
+}
+
+.comparison-plan {
+  display: none;
+}
+
+.comparison-note {
+  max-width: 740px;
+  margin: 24px 0 0;
+  font-size: 16px;
+}
+
+.pricing-faq {
+  padding-block: 0 100px;
+}
+
+.pricing-faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.pricing-faq details:first-of-type {
+  border-top: 1px solid var(--line);
+}
+
+.pricing-faq summary {
+  min-height: 56px;
+  padding: 22px 0;
+  color: var(--text-strong);
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.pricing-faq details p {
+  max-width: 760px;
+  margin: 0 0 22px;
+}
+
+.pricing-help {
+  margin: 28px 0 0;
+}
+
+.pricing-preview {
+  padding-block: 72px;
+  border-block: 1px solid var(--line-soft);
+  background: var(--bg-deep);
+}
+
+.pricing-preview-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.pricing-preview h2 {
+  margin-bottom: 20px;
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.pricing-preview p:last-child {
+  margin-bottom: 0;
+}
+
+.pricing-preview-offer > p:first-child {
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.pricing-preview-offer strong {
+  color: var(--text-strong);
+  font-size: 38px;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-preview-offer > p:nth-child(2) {
+  font-size: 16px;
+}
+
+.pricing-preview .button {
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.3;
+}
+
+@media (max-width: 760px) {
+  .pricing-hero {
+    padding-block: 54px 64px;
+  }
+
+  .pricing-plans {
+    margin-top: 36px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pricing-plan {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .pricing-benefits,
+  .pricing-comparison {
+    padding-block: 64px;
+  }
+
+  .pricing-benefit-grid,
+  .pricing-preview-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pricing-table,
+  .pricing-table tbody {
+    display: block;
+  }
+
+  .pricing-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .pricing-table tbody tr {
+    padding-block: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pricing-table tbody th,
+  .pricing-table tbody td {
+    width: auto;
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  .pricing-table tbody th {
+    grid-column: 1 / -1;
+  }
+
+  .comparison-plan {
+    margin-bottom: 5px;
+    display: block;
+    color: var(--text-strong);
+    font-weight: 650;
+  }
+
+  .pricing-faq {
+    padding-bottom: 72px;
+  }
+
+  .pricing-faq summary {
+    font-size: 18px;
+  }
+
+  .pricing-preview {
+    padding-block: 56px;
+  }
+}
