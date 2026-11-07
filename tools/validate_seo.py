@@ -13,6 +13,7 @@ from urllib.parse import unquote, urljoin, urlsplit
 import xml.etree.ElementTree as ET
 
 ORIGIN = "https://tmoxie.app"
+APP_STORE_URL = "https://apps.apple.com/us/app/tmoxie/id6767995101?uo=4"
 PAGES = {
     "/": "index.html",
     "/tutorials/": "tutorials/index.html",
@@ -109,7 +110,8 @@ def validate(root):
             require(by_type["WebSite"]["@id"] == ORIGIN + "/#website", "Wrong WebSite identity")
             app = by_type["SoftwareApplication"]
             require(app["@id"] == ORIGIN + "/#app" and app["url"] == url and app["operatingSystem"] == "iOS 17 or later", "Wrong application identity or platform")
-            require(not ({"downloadUrl", "installUrl", "aggregateRating", "review", "offers"} & set(app)), "Launch-in-progress schema must not invent store availability, ratings, or prices")
+            require(app.get("downloadUrl") == APP_STORE_URL and APP_STORE_URL in page.links, "Homepage must link to the released App Store app")
+            require(not ({"installUrl", "aggregateRating", "review", "offers"} & set(app)), "App schema must not invent install URLs, ratings, or prices")
         else:
             breadcrumb = by_type["BreadcrumbList"]
             require(webpage["breadcrumb"] == {"@id": url + "#breadcrumb"} and breadcrumb["@id"] == url + "#breadcrumb", f"{path}: breadcrumb identity mismatch")
@@ -148,7 +150,7 @@ def validate(root):
     llms = (root / "llms.txt").read_text()
     for path in PAGES:
         require(ORIGIN + path in llms, f"llms.txt omits {path}")
-    require("App Store launch is in progress" in llms, "llms.txt availability differs from current launch")
+    require("available on the App Store" in llms and APP_STORE_URL in llms, "llms.txt must name the released App Store download")
     return pages, resources
 
 

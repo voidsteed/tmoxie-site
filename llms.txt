@@ -4,7 +4,7 @@
 
 ## Product status and limits
 
-- App Store launch is in progress. This site does not provide a public App Store download link.
+- tmoxie is available on the App Store. [Download tmoxie for iPhone](https://apps.apple.com/us/app/tmoxie/id6767995101?uo=4).
 - Requires iPhone with iOS 17 or later. Live connections require a reachable SSH host with password authentication.
 - In tmoxie 0.3.87, Try Demo on Hosts opens a working local terminal and workspace simulation without a server, account, or purchase. Example commands and prompt replies are local simulations. No SSH, tmux or Herdr service, or AI model runs in the demo.
 - For live connections, shells, coding agents, tmux sessions, and Herdr TUI workspaces run on the user's remote machine, not on the iPhone or a tmoxie hosting service.
