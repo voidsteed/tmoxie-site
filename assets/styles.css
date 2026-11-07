@@ -303,6 +303,7 @@ kbd {
 }
 
 .nav-toggle {
+  position: relative;
   width: 46px;
   height: 46px;
   padding: 0;
@@ -316,6 +317,8 @@ kbd {
 
 .nav-toggle span:not(.sr-only) {
   position: absolute;
+  inset: 0;
+  margin: auto;
   width: 19px;
   height: 2px;
   border-radius: 2px;
